@@ -1,7 +1,7 @@
 # config-files
 some of my config files (vim, tmux, etc.)
 
-files are hidden so cannnot be seen in finder
+config file should be rename as .filename and put into home dirctory
 
 .bash.profile config
 ```
