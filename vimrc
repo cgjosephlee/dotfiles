@@ -42,6 +42,7 @@ set incsearch
 set mouse=a
 let python_highlight_all=1
 let g:syntastic_python_python_exec = 'python3'
+let g:ycm_autoclose_preview_window_after_completion = 1
 
 " last status
 set laststatus=2
