@@ -20,6 +20,7 @@ Plugin 'nvie/vim-flake8'
 Plugin 'ErichDonGubler/vim-sublime-monokai'
 Plugin 'vim-airline/vim-airline'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'jpalardy/vim-slime'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -43,12 +44,17 @@ set hlsearch
 set incsearch
 set mouse=a
 
+" remap C-a and C-x (conflict with tmux prefix)
+nnoremap <leader>a <C-a>
+nnoremap <leader>x <C-x>
+
 " syntastic
 let python_highlight_all=1
 " let g:syntastic_python_python_exec = 'python3'
 
 " YCM
-" let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_completion = 0
+let g:ycm_autoclose_preview_window_after_insertion = 1
 
 " last status
 set laststatus=2
@@ -70,6 +76,11 @@ set ttimeoutlen=10
 let g:NERDSpaceDelims=1
 let g:NERDCustomDelimiters = {'python': {'left': '#'}}
 let NERDDefaultAlign="left"
+
+" vim-slime
+let g:slime_target = "tmux"
+let g:slime_python_ipython = 1
+let g:slime_default_config = {"socket_name": "default", "target_pane": ".2"}
 
 " configs for *py
 au BufNewFile,BufRead *.py
