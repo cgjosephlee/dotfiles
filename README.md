@@ -1,5 +1,5 @@
 # Config files
-Some of my config files (vim, tmux, etc.), config file should be renamed as `.filename` and put in home dirctory.
+Some of my config files (vim, tmux, etc.). Config file should be renamed as `.filename` and put in home directory.
 
 ## TOC
 <!-- MarkdownTOC -->
@@ -25,6 +25,7 @@ Some of my config files (vim, tmux, etc.), config file should be renamed as `.fi
     - [Vundle](#vundle)
     - [vim-sublime-monokai](#vim-sublime-monokai)
     - [YouCompleteMe](#youcompleteme)
+    - [Syntastic](#syntastic)
     - [Nerd commenter](#nerd-commenter)
     - [vim-slime](#vim-slime)
     - [Other plugins](#other-plugins-1)
@@ -96,6 +97,7 @@ Keybindings:
 - Markdown Preview
 - MarkdownTOC ([usage](https://github.com/naokazuterada/MarkdownTOC#usage))
 - Side​Bar​Enhancements
+- SublimeCodeIntel
 
 ## Zsh
 ### Setup zsh
@@ -174,13 +176,35 @@ colorscheme sublimemonokai
 May need to compile manually.
 ```sh
 cd ~/.vim/bundle/YouCompleteMe/ && ./install.py
-# for mac, use system python2 to build, no need MacVim
+# for mac, use system python2 to build
 cd ~/.vim/bundle/YouCompleteMe/ && /usr/bin/python ./install.py
 ```
 Settings
 ```vim
 let g:ycm_autoclose_preview_window_after_completion = 0
 let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_seed_identifiers_with_syntax = 1
+```
+To support autocompletion for custome packages (eq. Anaconda), here add a python script `.ycm_global_extra_conf.py` to configure package path.
+
+Python version for compiling ycm and launching ycm interpreter can be different (I compiled with system python 2.7 and launch ycm interpreter with anaconda python 3.6, and have completion for packages installed by anaconda).
+```vim
+let g:ycm_global_ycm_extra_conf = '~/.ycm_global_extra_conf.py'
+```
+
+### [Syntastic](https://github.com/vim-syntastic/syntastic)
+To lint `.py` with flake8, need to install flake8 first.
+```sh
+conda install flake8
+```
+```vim
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_python_checkers = ['flake8']
+```
+Color test for configuring color scheme
+```vim
+:so $VIMRUNTIME/syntax/colortest.vim
 ```
 
 ### [Nerd commenter](https://github.com/scrooloose/nerdcommenter)
@@ -212,7 +236,6 @@ let g:slime_default_config = {"socket_name": "default", "target_pane": ".2"}
 - [terryma/vim-multiple-cursors](https://github.com/terryma/vim-multiple-cursors)
 - vim-scripts/indentpython.vim
 - vim-scripts/nextval
-- vim-syntastic/syntastic
 - nvie/vim-flake8
 - [benmills/vimux](https://github.com/benmills/vimux)
 

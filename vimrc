@@ -16,7 +16,6 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-syntastic/syntastic'
-Plugin 'nvie/vim-flake8'
 Plugin 'ErichDonGubler/vim-sublime-monokai'
 Plugin 'vim-airline/vim-airline'
 Plugin 'scrooloose/nerdcommenter'
@@ -49,12 +48,18 @@ nnoremap <leader>a <C-a>
 nnoremap <leader>x <C-x>
 
 " syntastic
-let python_highlight_all=1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_python_checkers = ['flake8']
 " let g:syntastic_python_python_exec = 'python3'
+highlight SyntasticError ctermbg=lightmagenta ctermfg=black
+highlight SyntasticWarning ctermbg=lightyellow ctermfg=black
 
 " YCM
 let g:ycm_autoclose_preview_window_after_completion = 0
 let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_global_ycm_extra_conf = '~/.ycm_global_extra_conf.py'
 
 " last status
 set laststatus=2
@@ -67,6 +72,7 @@ highlight User2 ctermfg=green
 highlight User3 ctermfg=yellow
 highlight User4 ctermfg=white
 highlight BadWhitespace ctermbg=red guibg=darkred
+
 " vim-airline
 set noshowmode
 set ttimeoutlen=10
@@ -83,6 +89,7 @@ let g:slime_python_ipython = 1
 let g:slime_default_config = {"socket_name": "default", "target_pane": ".2"}
 
 " configs for *py
+" let python_highlight_all=1
 au BufNewFile,BufRead *.py
     \ set tabstop=4 |
     \ set softtabstop=4 |
