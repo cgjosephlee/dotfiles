@@ -1,41 +1,38 @@
-# Config files
+# Config files <!-- omit in toc -->
 Some of my config files (vim, tmux, etc.). Config file should be renamed as `.filename` and put in home directory.
 
-## TOC
-<!-- MarkdownTOC -->
-
+## TOC <!-- omit in toc -->
+<!-- created by vscode Markdown All in One -->
 - [iTerm2](#iterm2)
-    - [Color preset](#color-preset)
-    - [Font](#font)
+  - [Color preset](#color-preset)
+  - [Font](#font)
 - [Sublime Text 3](#sublime-text-3)
-    - [Package control](#package-control)
-    - [Theme](#theme)
-    - [Color scheme](#color-scheme)
-    - [SublimeREPL](#sublimerepl)
-    - [Other plugins](#other-plugins)
+  - [Package control](#package-control)
+  - [Theme](#theme)
+  - [Color scheme](#color-scheme)
+  - [SublimeREPL](#sublimerepl)
+  - [Other plugins](#other-plugins)
 - [Zsh](#zsh)
-    - [Setup zsh](#setup-zsh)
-    - [Oh my zsh](#oh-my-zsh)
-    - [powerlevel9k](#powerlevel9k)
-    - [dracula](#dracula)
-    - [Fast-syntax-highlighting](#fast-syntax-highlighting)
-    - [biozsh](#biozsh)
+  - [Setup zsh](#setup-zsh)
+  - [Oh my zsh](#oh-my-zsh)
+  - [powerlevel9k](#powerlevel9k)
+  - [dracula](#dracula)
+  - [Fast-syntax-highlighting](#fast-syntax-highlighting)
+  - [biozsh](#biozsh)
 - [Vim](#vim)
-    - [Useful shortcuts](#useful-shortcuts)
-    - [Vundle](#vundle)
-    - [vim-sublime-monokai](#vim-sublime-monokai)
-    - [YouCompleteMe](#youcompleteme)
-    - [Syntastic](#syntastic)
-    - [Nerd commenter](#nerd-commenter)
-    - [vim-slime](#vim-slime)
-    - [Other plugins](#other-plugins-1)
+  - [Useful shortcuts](#useful-shortcuts)
+  - [Vundle](#vundle)
+  - [vim-sublime-monokai](#vim-sublime-monokai)
+  - [YouCompleteMe](#youcompleteme)
+  - [Syntastic](#syntastic)
+  - [Nerd commenter](#nerd-commenter)
+  - [vim-slime](#vim-slime)
+  - [Other plugins](#other-plugins-1)
 - [Tmux](#tmux)
-    - [Tmux Plugin Manager \(tpm\)](#tmux-plugin-manager-tpm)
-    - [Other plugins](#other-plugins-2)
+  - [Tmux Plugin Manager (tpm)](#tmux-plugin-manager-tpm)
+  - [Other plugins](#other-plugins-2)
 - [Misc](#misc)
-    - [Bash PS1 config](#bash-ps1-config)
-
-<!-- /MarkdownTOC -->
+  - [Bash PS1 config](#bash-ps1-config)
 
 ## iTerm2
 ### Color preset
@@ -146,8 +143,8 @@ ln -s ~/.oh-my-zsh/custom/plugins/biozsh/biozsh.zsh ~/.oh-my-zsh/custom/plugins/
 ```
 
 ## Vim
-Make vim a light-weighted python IDE: [ENG](https://realpython.com/vim-and-python-a-match-made-in-heaven/)/[CHN](http://codingpy.com/article/vim-and-python-match-in-heaven/).
-[Vim tips wiki](http://vim.wikia.com/wiki/Vim_Tips_Wiki).
+- Make vim a light-weighted python IDE: [ENG](https://realpython.com/vim-and-python-a-match-made-in-heaven/)/[CHN](http://codingpy.com/article/vim-and-python-match-in-heaven/).
+- [Vim tips wiki](http://vim.wikia.com/wiki/Vim_Tips_Wiki).
 
 ### Useful shortcuts
 - `[count]G`:jump to line.
