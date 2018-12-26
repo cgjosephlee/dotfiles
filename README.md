@@ -12,13 +12,20 @@ Some of my config files (vim, tmux, etc.). Config file should be renamed as `.fi
   - [Color scheme](#color-scheme)
   - [SublimeREPL](#sublimerepl)
   - [Other plugins](#other-plugins)
+- [Bash](#bash)
+  - [Bash-it](#bash-it)
+  - [Oh my bash](#oh-my-bash)
+  - [Theme](#theme-1)
+  - [Misc](#misc)
 - [Zsh](#zsh)
   - [Setup zsh](#setup-zsh)
   - [Oh my zsh](#oh-my-zsh)
-  - [powerlevel9k](#powerlevel9k)
-  - [dracula](#dracula)
-  - [Fast-syntax-highlighting](#fast-syntax-highlighting)
-  - [biozsh](#biozsh)
+  - [Theme](#theme-2)
+    - [powerlevel9k](#powerlevel9k)
+    - [dracula](#dracula)
+  - [Plugins](#plugins)
+    - [Fast-syntax-highlighting](#fast-syntax-highlighting)
+    - [biozsh](#biozsh)
 - [Vim](#vim)
   - [Useful shortcuts](#useful-shortcuts)
   - [Vundle](#vundle)
@@ -31,8 +38,6 @@ Some of my config files (vim, tmux, etc.). Config file should be renamed as `.fi
 - [Tmux](#tmux)
   - [Tmux Plugin Manager (tpm)](#tmux-plugin-manager-tpm)
   - [Other plugins](#other-plugins-2)
-- [Misc](#misc)
-  - [Bash PS1 config](#bash-ps1-config)
 
 ## iTerm2
 ### Color preset
@@ -96,6 +101,30 @@ Keybindings:
 - Side​Bar​Enhancements
 - SublimeCodeIntel
 
+## Bash
+### [Bash-it](https://github.com/Bash-it/bash-it)
+A community Bash framework.
+```sh
+git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
+~/.bash_it/install.sh
+```
+### [Oh my bash](https://github.com/ohmybash/oh-my-bash)
+A delightful community-driven framework.
+
+### Theme
+- [Median](https://gist.github.com/cgjosephlee/69bfd32a39dad7c5a6fab10c0551806f)
+
+### Misc
+#### Bash PS1 config <!-- omit in toc -->
+```bash
+export PS1='\[\e[1;33m\]$PWD/ \[\e[0m\]\n\u@\h@\t $ '
+```
+behaves like
+```
+/to/your/path
+User@Host@Time $
+```
+
 ## Zsh
 ### Setup zsh
 ```sh
@@ -107,8 +136,8 @@ chsh -s /bin/zsh
 git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 ```
-
-### [powerlevel9k](https://github.com/bhilburn/powerlevel9k)
+### Theme
+#### [powerlevel9k](https://github.com/bhilburn/powerlevel9k)
 Installation
 ```sh
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
@@ -121,13 +150,13 @@ For color customization, all supported colors are ([ref](https://github.com/bhil
 for code ({000..255}) print -P -- "$code: %F{$code}This is how your text would look like%f"
 ```
 
-### [dracula](https://draculatheme.com/zsh/)
+#### [dracula](https://draculatheme.com/zsh/)
 A vampire style theme and color scheme for many programs.
 ```sh
 wget -P ~/.oh-my-zsh/custom/themes https://github.com/dracula/zsh/raw/master/dracula.zsh-theme
 ```
-
-### [Fast-syntax-highlighting](https://github.com/zdharma/fast-syntax-highlighting)
+### Plugins
+#### [Fast-syntax-highlighting](https://github.com/zdharma/fast-syntax-highlighting)
 An alternative of [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting).
 ```sh
 git clone https://github.com/zdharma/fast-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/fast-syntax-highlighting
@@ -135,7 +164,7 @@ git clone https://github.com/zdharma/fast-syntax-highlighting.git ~/.oh-my-zsh/c
 fast-theme safari
 ```
 
-### [biozsh](https://github.com/kloetzl/biozsh)
+#### [biozsh](https://github.com/kloetzl/biozsh)
 Zsh autocompletes for plenty bioinfomatic tools.
 ```sh
 git clone https://github.com/kloetzl/biozsh.git ~/.oh-my-zsh/custom/plugins/biozsh
@@ -236,7 +265,15 @@ let g:slime_default_config = {"socket_name": "default", "target_pane": ".2"}
 - nvie/vim-flake8
 - [benmills/vimux](https://github.com/benmills/vimux)
 
-## Tmux
+## [Tmux](https://github.com/tmux/tmux)
+Manual installation
+1. Install [libevent](https://github.com/libevent/libevent)
+2. Install tmux
+```sh
+./configure CFLAGS="-I$HOME/.local/include" LDFLAGS="-L$HOME/.local/lib" --prefix=$HOME/.local
+make && make install
+```
+
 ### [Tmux Plugin Manager (tpm)](https://github.com/tmux-plugins/tpm)
 Install
 ```sh
@@ -262,14 +299,3 @@ or via command line ([ref](https://github.com/tmux-plugins/tpm/blob/master/docs/
 
 ### Other plugins
 - [tmux-prefix-highlight](https://github.com/tmux-plugins/tmux-prefix-highlight)
-
-## Misc
-### Bash PS1 config
-```bash
-export PS1='\[\e[1;33m\]$PWD/ \[\e[0m\]\n\u@\h@\t $ '
-```
-behaves like
-```
-/to/your/path
-User@Host@Time $
-```

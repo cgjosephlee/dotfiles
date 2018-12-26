@@ -20,6 +20,7 @@ Plugin 'ErichDonGubler/vim-sublime-monokai'
 Plugin 'vim-airline/vim-airline'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'jpalardy/vim-slime'
+Plugin 'burneyy/vim-snakemake'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -46,6 +47,9 @@ set mouse=a
 " remap C-a and C-x (conflict with tmux prefix)
 nnoremap <leader>a <C-a>
 nnoremap <leader>x <C-x>
+
+" search selected text by '//' in visual mode, also try '*' and '#'
+vnoremap // y/\V<C-r>=escape(@",'/\')<CR><CR>
 
 " syntastic
 let g:syntastic_check_on_open = 1
