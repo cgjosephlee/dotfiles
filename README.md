@@ -27,17 +27,24 @@ Some of my config files (vim, tmux, etc.). Config file should be renamed as `.fi
     - [Fast-syntax-highlighting](#fast-syntax-highlighting)
     - [biozsh](#biozsh)
 - [Vim](#vim)
+  - [Manual installation](#manual-installation)
   - [Useful shortcuts](#useful-shortcuts)
-  - [Vundle](#vundle)
+  - [vim-plug](#vim-plug)
   - [vim-sublime-monokai](#vim-sublime-monokai)
   - [YouCompleteMe](#youcompleteme)
   - [Syntastic](#syntastic)
   - [Nerd commenter](#nerd-commenter)
   - [vim-slime](#vim-slime)
   - [Other plugins](#other-plugins-1)
-- [Tmux](#tmux)
-  - [Tmux Plugin Manager (tpm)](#tmux-plugin-manager-tpm)
+- [NeoVim](#neovim)
+  - [Manual installation](#manual-installation-1)
+  - [vim-plug](#vim-plug-1)
   - [Other plugins](#other-plugins-2)
+- [Tmux](#tmux)
+  - [Manual installation](#manual-installation-2)
+  - [Tmux Plugin Manager (tpm)](#tmux-plugin-manager-tpm)
+  - [Other plugins](#other-plugins-3)
+- [Misc](#misc-1)
 
 ## iTerm2
 ### Color preset
@@ -104,10 +111,17 @@ Keybindings:
 ## Bash
 ### [Bash-it](https://github.com/Bash-it/bash-it)
 A community Bash framework.
+Installation
 ```sh
 git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
 ~/.bash_it/install.sh
 ```
+Uninstallation
+```sh
+cd $BASH_IT && ./uninstall.sh
+cd $HOME && rm -rf $BASH_IT
+```
+
 ### [Oh my bash](https://github.com/ohmybash/oh-my-bash)
 A delightful community-driven framework.
 
@@ -175,6 +189,11 @@ ln -s ~/.oh-my-zsh/custom/plugins/biozsh/biozsh.zsh ~/.oh-my-zsh/custom/plugins/
 - Make vim a light-weighted python IDE: [ENG](https://realpython.com/vim-and-python-a-match-made-in-heaven/)/[CHN](http://codingpy.com/article/vim-and-python-match-in-heaven/).
 - [Vim tips wiki](http://vim.wikia.com/wiki/Vim_Tips_Wiki).
 
+### Manual installation
+_Painful and not tried. Consider to try NeoVim._
+- https://www.vim.org/git.php
+- https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source
+
 ### Useful shortcuts
 - `[count]G`:jump to line.
 - `C-b` and `C-f`: pageup and pagedown.
@@ -182,14 +201,22 @@ ln -s ~/.oh-my-zsh/custom/plugins/biozsh/biozsh.zsh ~/.oh-my-zsh/custom/plugins/
 - `vip` and `vap`: select paragraph (versatile selection:`v[count][ia][wspb()[]{}"']` see [manual](http://vimdoc.sourceforge.net/htmldoc/motion.html#v_ip)).
 - `C-a` and `C-x`: increase or decrease the number (remap to `\-a` and `\-x` to avoild conflict with tmux)
 
-### [Vundle](https://github.com/VundleVim/Vundle.vim)
+### [vim-plug](https://github.com/junegunn/vim-plug)
+Install
+```sh
+# for vim
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
+
+<!-- ### [Vundle](https://github.com/VundleVim/Vundle.vim)
 Install
 ```sh
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ```
 and configure `.vimrc` (see readme of vundle).
 
-Run `:PluginInstall` in vim or `vim +PluginInstall +qall` in command line.
+Run `:PluginInstall` in vim or `vim +PluginInstall +qall` in command line. -->
 
 ### [vim-sublime-monokai](https://github.com/ErichDonGubler/vim-sublime-monokai)
 Add to `.vimrc`:
@@ -234,7 +261,7 @@ Color test for configuring color scheme
 ```
 
 ### [Nerd commenter](https://github.com/scrooloose/nerdcommenter)
-Default `<Leader>` is `\`.
+Default `<leader>` is `\`.
 
 Add a space after comment sign
 ```vim
@@ -265,8 +292,36 @@ let g:slime_default_config = {"socket_name": "default", "target_pane": ".2"}
 - nvie/vim-flake8
 - [benmills/vimux](https://github.com/benmills/vimux)
 
+## [NeoVim](https://neovim.io)
+- Config path: `~/.config/nvim/init.nvim`
+- Differences between Nvim and Vim: https://neovim.io/doc/user/vim_diff.html
+- Python support: https://neovim.io/doc/user/provider.html#provider-python
+```sh
+pip3 install --user --upgrade neovim
+```
+
+### Manual installation
+Just download and enjoy!
+```sh
+# for linux
+curl -LO https://github.com/neovim/neovim/releases/download/latest/nvim.appimage
+chmod u+x nvim.appimage
+```
+
+### [vim-plug](https://github.com/junegunn/vim-plug)
+Install
+```sh
+# for nvim
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
+
+### Other plugins
+- [deoplete.nvim](https://github.com/Shougo/deoplete.nvim) (autocompletion)
+- [ncm2](https://github.com/ncm2/ncm2) (autocompletion)
+
 ## [Tmux](https://github.com/tmux/tmux)
-Manual installation
+### Manual installation
 1. Install [libevent](https://github.com/libevent/libevent)
 2. Install tmux
 ```sh
@@ -299,3 +354,6 @@ or via command line ([ref](https://github.com/tmux-plugins/tpm/blob/master/docs/
 
 ### Other plugins
 - [tmux-prefix-highlight](https://github.com/tmux-plugins/tmux-prefix-highlight)
+
+## Misc
+- [Using GNU Stow to manage dotfiles](https://farseerfc.me/using-gnu-stow-to-manage-your-dotfiles.html)

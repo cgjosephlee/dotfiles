@@ -114,7 +114,7 @@ HYPHEN_INSENSITIVE="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git biozsh docker fast-syntax-highlighting zsh_reload fast-quit
+  git biozsh docker fast-syntax-highlighting zsh_reload
 )
 
 source $ZSH/oh-my-zsh.sh
