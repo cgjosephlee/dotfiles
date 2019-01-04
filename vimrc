@@ -1,30 +1,13 @@
-set nocompatible              " required
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-
-" add all your plugins here (note older versions of Vundle
-" used Bundle instead of Plugin)
-Plugin 'vim-scripts/indentpython.vim'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'ErichDonGubler/vim-sublime-monokai'
-Plugin 'vim-airline/vim-airline'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'jpalardy/vim-slime'
-Plugin 'burneyy/vim-snakemake'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+call plug#begin('~/.vim/plugged')
+Plug 'vim-scripts/indentpython.vim'
+Plug 'Valloric/YouCompleteMe'
+Plug 'vim-syntastic/syntastic'
+Plug 'ErichDonGubler/vim-sublime-monokai'
+Plug 'vim-airline/vim-airline'
+Plug 'scrooloose/nerdcommenter'
+Plug 'jpalardy/vim-slime'
+Plug 'burneyy/vim-snakemake'
+call plug#end()
 
 " User define
 colorscheme sublimemonokai
