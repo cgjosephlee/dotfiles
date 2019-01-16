@@ -6,6 +6,7 @@ Some of my config files (vim, tmux, etc.). Config file should be renamed as `.fi
 - [iTerm2](#iterm2)
   - [Color preset](#color-preset)
   - [Font](#font)
+  - [Other emulators](#other-emulators)
 - [Sublime Text 3](#sublime-text-3)
   - [Package control](#package-control)
   - [Theme](#theme)
@@ -61,6 +62,11 @@ Powerline: 12pt Sauce Code Pro Nerd Font Complete
 ```
 brew cash install font-sourcecodepro-nerd-font
 ```
+
+### Other emulators
+- [kitty](https://sw.kovidgoyal.net/kitty/)
+- [alacritty](https://github.com/jwilm/alacritty)
+- [hyper](https://hyper.is)
 
 ## Sublime Text 3
 ### [Package control](https://packagecontrol.io)
@@ -195,7 +201,7 @@ _Painful and not tried. Consider to try NeoVim._
 - https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source
 
 ### Useful shortcuts
-- `[count]G`:jump to line.
+- `[count]G`: jump to line.
 - `C-b` and `C-f`: pageup and pagedown.
 - `f[character]` and `t[character]`: jump to [character] in line (`;` and `,` for next and previous match).
 - `vip` and `vap`: select paragraph (versatile selection:`v[count][ia][wspb()[]{}"']` see [manual](http://vimdoc.sourceforge.net/htmldoc/motion.html#v_ip)).
