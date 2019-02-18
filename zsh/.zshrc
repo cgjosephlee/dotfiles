@@ -130,6 +130,9 @@ fi
 # zstyle ':completion:*:descriptions' format '%B%d%b'
 zstyle ':completion:*:messages' format '%d'
 zstyle ':completion:*:warnings' format 'No matches for: %B%d%b'
+zstyle -s ':completion:*:hosts' hosts _ssh_config
+[[ -r ~/.ssh/config ]] && _ssh_config+=($(cat ~/.ssh/config | sed -ne 's/Host[=\t ]//p'))
+zstyle ':completion:*:hosts' hosts $_ssh_config
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -148,5 +151,6 @@ alias zl="zless"
 alias zL="zless -S"
 alias grep="grep --color=auto"
 alias tmux="tmux -2"
+alias tl="tmux ls"
 alias tn="tmux new"
 alias ta="tmux a"
