@@ -39,7 +39,7 @@ vnoremap // y/\V<C-r>=escape(@",'/\')<CR><CR>
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_python_checker_args = '--ignore=E309,E501,E302,E305'
+let g:syntastic_python_flake8_args = '--ignore=E309,E501,E302,E305'
 " let g:syntastic_python_python_exec = 'python3'
 highlight SyntasticError ctermbg=lightmagenta ctermfg=black
 highlight SyntasticWarning ctermbg=lightyellow ctermfg=black
