@@ -3,6 +3,9 @@ Some of my config files (vim, tmux, etc.). Config file should be renamed as `.fi
 
 ## TOC <!-- omit in toc -->
 <!-- created by vscode Markdown All in One -->
+- [Manage with stow](#manage-with-stow)
+  - [Installation](#installation)
+  - [Usage](#usage)
 - [iTerm2](#iterm2)
   - [Color preset](#color-preset)
   - [Font](#font)
@@ -46,6 +49,30 @@ Some of my config files (vim, tmux, etc.). Config file should be renamed as `.fi
   - [Tmux Plugin Manager (tpm)](#tmux-plugin-manager-tpm)
   - [Other plugins](#other-plugins-3)
 - [Misc](#misc-1)
+
+
+## Manage with stow
+### Installation
+Linux
+```sh
+git submodule init
+git submodule update
+cd vendor/stow
+./configure && make install
+```
+MacOS
+```
+brew install stow
+```
+
+### Usage
+```sh
+# install
+stow -v -t $HOME karabiner
+
+# uninstall
+stow -v -t $HOME karabiner -D
+```
 
 ## iTerm2
 ### Color preset
@@ -292,6 +319,7 @@ let g:slime_default_config = {"socket_name": "default", "target_pane": ".2"}
 
 ### Other plugins
 - [vim-airline/vim-airline](https://github.com/vim-airline/vim-airline)
+- [jiangmiao/auto-pairs](https://github.com/jiangmiao/auto-pairs)
 - [terryma/vim-multiple-cursors](https://github.com/terryma/vim-multiple-cursors)
 - vim-scripts/indentpython.vim
 - vim-scripts/nextval

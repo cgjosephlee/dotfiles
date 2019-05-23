@@ -5,6 +5,7 @@ Plug 'vim-syntastic/syntastic'
 Plug 'ErichDonGubler/vim-sublime-monokai'
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdcommenter'
+Plug 'jiangmiao/auto-pairs'
 Plug 'jpalardy/vim-slime'
 Plug 'burneyy/vim-snakemake'
 call plug#end()
