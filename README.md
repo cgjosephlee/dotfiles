@@ -177,11 +177,23 @@ User@Host@Time $
 ```sh
 chsh -s /bin/zsh
 ```
+Without root
+```sh
+# install from source
+wget -O zsh.tar.xz https://sourceforge.net/projects/zsh/files/latest/download
+tar Jxf zsh.tar.xz
+cd zsh-<version>
+./configure --prefix=$HOME/.local
+make && make install
+# install oh my zsh
+CHSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# activate zsh in , e.g. .bashrc
+exec zsh
+```
 
 ### [Oh my zsh](https://github.com/robbyrussell/oh-my-zsh)
 ```sh
-git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 ### Theme
 #### [powerlevel9k](https://github.com/bhilburn/powerlevel9k)
@@ -208,6 +220,7 @@ An alternative of [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syn
 ```sh
 git clone https://github.com/zdharma/fast-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/fast-syntax-highlighting
 # add to .zshrc plugin list and restart zsh
+exec zsh
 fast-theme safari
 ```
 
@@ -215,7 +228,6 @@ fast-theme safari
 Zsh autocompletes for plenty bioinfomatic tools.
 ```sh
 git clone https://github.com/kloetzl/biozsh.git ~/.oh-my-zsh/custom/plugins/biozsh
-ln -s ~/.oh-my-zsh/custom/plugins/biozsh/biozsh.zsh ~/.oh-my-zsh/custom/plugins/biozsh/biozsh.plugin.zsh
 ```
 
 ## Vim

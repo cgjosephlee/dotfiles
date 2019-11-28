@@ -114,13 +114,13 @@ HYPHEN_INSENSITIVE="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git biozsh docker fast-syntax-highlighting zsh_reload
+  git biozsh fast-syntax-highlighting zsh_reload
 )
 
 source $ZSH/oh-my-zsh.sh
 
 if [ -f "$HOME/.profile" ]; then
-    source "$HOME/.profile"
+  source "$HOME/.profile"
 fi
 
 # User configuration
