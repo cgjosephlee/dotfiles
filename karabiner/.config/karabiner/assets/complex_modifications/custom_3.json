@@ -1,5 +1,5 @@
 {
-  "title": "Custom 3: Terminal apps",
+  "title": "Custom 3: Tmux",
   "rules": [
     {
       "description": "Tmux Prefix Mode [caps_lock as trigger key] (modified)",

@@ -129,7 +129,7 @@
       ]
     },
     {
-      "description": "Change [shift + del] and [opt + del] to forward delete (modified)",
+      "description": "Change [shift + del] forward delete (modified)",
       "manipulators": [
         {
           "type": "basic",
@@ -138,10 +138,6 @@
             "modifiers": {
               "mandatory": [
                 "shift"
-              ],
-              "optional": [
-                "command",
-                "control"
               ]
             }
           },
@@ -150,7 +146,12 @@
               "key_code": "delete_forward"
             }
           ]
-        },
+        }
+      ]
+    },
+    {
+      "description": "Change [opt + del] to forward delete (modified)",
+      "manipulators": [
         {
           "type": "basic",
           "from": {
@@ -158,10 +159,6 @@
             "modifiers": {
               "mandatory": [
                 "option"
-              ],
-              "optional": [
-                "command",
-                "control"
               ]
             }
           },
