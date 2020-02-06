@@ -1,11 +1,14 @@
 call plug#begin('~/.vim/plugged')
-Plug 'vim-scripts/indentpython.vim'
+" Plug 'vim-scripts/indentpython.vim'
+Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'Valloric/YouCompleteMe'
 Plug 'vim-syntastic/syntastic'
 Plug 'ErichDonGubler/vim-sublime-monokai'
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdcommenter'
+Plug 'Yggdroot/indentLine'
 Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-surround'
 Plug 'jpalardy/vim-slime'
 Plug 'burneyy/vim-snakemake'
 call plug#end()
@@ -22,7 +25,8 @@ set ai
 set tabstop=4
 set shiftwidth=4
 set expandtab
-set nu
+set number
+set relativenumber
 set confirm
 set ic
 set hlsearch
@@ -72,6 +76,9 @@ set ttimeoutlen=10
 let g:NERDSpaceDelims=1
 let g:NERDCustomDelimiters = {'python': {'left': '#'}}
 let NERDDefaultAlign="left"
+
+" indentLine
+let g:indentLine_enabled = 1
 
 " vim-slime
 let g:slime_target = "tmux"
