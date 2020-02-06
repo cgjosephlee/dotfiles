@@ -79,6 +79,7 @@ let NERDDefaultAlign="left"
 
 " indentLine
 let g:indentLine_enabled = 1
+let g:indentLine_color_term = 0
 
 " vim-slime
 let g:slime_target = "tmux"
