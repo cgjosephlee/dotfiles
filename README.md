@@ -26,6 +26,7 @@ Some of my config files (vim, tmux, etc.). Config file should be renamed as `.fi
   - [Oh my zsh](#oh-my-zsh)
   - [Theme](#theme-2)
     - [powerlevel9k](#powerlevel9k)
+    - [powerlevel10k](#powerlevel10k)
     - [dracula](#dracula)
   - [Plugins](#plugins)
     - [Fast-syntax-highlighting](#fast-syntax-highlighting)
@@ -49,20 +50,26 @@ Some of my config files (vim, tmux, etc.). Config file should be renamed as `.fi
   - [Tmux Plugin Manager (tpm)](#tmux-plugin-manager-tpm)
   - [Other plugins](#other-plugins-3)
 - [Misc](#misc-1)
+  - [Manage dotfiles](#manage-dotfiles)
 
 
 ## Manage with stow
 ### Installation
 Linux
-```sh
-git submodule init
-git submodule update
-cd vendor/stow
-./configure && make install
+```
+sudo apt-get install stow
 ```
 MacOS
 ```
 brew install stow
+```
+From source
+```sh
+git submodule init
+git submodule update
+cd vendor/stow
+autoreconf -iv
+./configure && make install
 ```
 
 ### Usage
@@ -209,6 +216,9 @@ For color customization, all supported colors are ([ref](https://github.com/bhil
 for code ({000..255}) print -P -- "$code: %F{$code}This is how your text would look like%f"
 ```
 
+#### [powerlevel10k](https://github.com/romkatv/powerlevel10k)
+A fast drop-in replacement for Powerlevel9k.
+
 #### [dracula](https://draculatheme.com/zsh/)
 A vampire style theme and color scheme for many programs.
 ```sh
@@ -273,9 +283,9 @@ colorscheme sublimemonokai
 ### [YouCompleteMe](https://github.com/Valloric/YouCompleteMe)
 May need to compile manually.
 ```sh
-cd ~/.vim/bundle/YouCompleteMe/ && ./install.py
-# for mac, use system python2 to build
-cd ~/.vim/bundle/YouCompleteMe/ && /usr/bin/python ./install.py
+cd ~/.vim/plugged/YouCompleteMe && ./install.py
+# for mac, use system python to build
+cd ~/.vim/plugged/YouCompleteMe && /usr/bin/python ./install.py
 ```
 Settings
 ```vim
@@ -330,13 +340,15 @@ let g:slime_default_config = {"socket_name": "default", "target_pane": ".2"}
 ```
 
 ### Other plugins
-- [vim-airline/vim-airline](https://github.com/vim-airline/vim-airline)
-- [jiangmiao/auto-pairs](https://github.com/jiangmiao/auto-pairs)
-- [terryma/vim-multiple-cursors](https://github.com/terryma/vim-multiple-cursors)
-- vim-scripts/indentpython.vim
-- vim-scripts/nextval
-- nvie/vim-flake8
-- [benmills/vimux](https://github.com/benmills/vimux)
+- [vim-airline](https://github.com/vim-airline/vim-airline)
+- [auto-pairs](https://github.com/jiangmiao/auto-pairs)
+- [vim-surround](https://github.com/tpope/vim-surround)
+- [vim-easy-align](https://github.com/junegunn/vim-easy-align)
+- [vim-multiple-cursors](https://github.com/terryma/vim-multiple-cursors)
+- [coc.nvim](https://github.com/neoclide/coc.nvim) (language server protocol support)
+- [nerdtree](https://github.com/preservim/nerdtree)
+- indentpython.vim
+- nextval
 
 ## [NeoVim](https://neovim.io)
 - Config path: `~/.config/nvim/init.nvim`
@@ -350,7 +362,7 @@ pip3 install --user --upgrade neovim
 Just download and enjoy!
 ```sh
 # for linux
-curl -LO https://github.com/neovim/neovim/releases/download/latest/nvim.appimage
+curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
 chmod u+x nvim.appimage
 ```
 
@@ -402,4 +414,9 @@ or via command line ([ref](https://github.com/tmux-plugins/tpm/blob/master/docs/
 - [tmux-prefix-highlight](https://github.com/tmux-plugins/tmux-prefix-highlight)
 
 ## Misc
+### Manage dotfiles
 - [Using GNU Stow to manage dotfiles](https://farseerfc.me/using-gnu-stow-to-manage-your-dotfiles.html)
+- [dotfiles example](https://github.com/xero/dotfiles)
+- https://github.com/TheLocehiliosan/yadm
+- https://github.com/thoughtbot/rcm
+- https://github.com/andsens/homeshick
