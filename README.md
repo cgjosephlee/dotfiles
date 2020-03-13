@@ -299,6 +299,11 @@ Python version for compiling ycm and launching ycm interpreter can be different 
 ```vim
 let g:ycm_global_ycm_extra_conf = '~/.ycm_global_extra_conf.py'
 ```
+`:YcmCompleter` subcommands
+```
+:YcmCompleter GetDoc
+:YcmCompleter GoTo   # can be involked with ctrl+O and ctrl+I
+```
 
 ### [Syntastic](https://github.com/vim-syntastic/syntastic)
 To lint `.py` with flake8, need to install flake8 first.
@@ -353,10 +358,6 @@ let g:slime_default_config = {"socket_name": "default", "target_pane": ".2"}
 ## [NeoVim](https://neovim.io)
 - Config path: `~/.config/nvim/init.nvim`
 - Differences between Nvim and Vim: https://neovim.io/doc/user/vim_diff.html
-- Python support: https://neovim.io/doc/user/provider.html#provider-python
-```sh
-pip3 install --user --upgrade neovim
-```
 
 ### Manual installation
 Just download and enjoy!
@@ -365,7 +366,10 @@ Just download and enjoy!
 curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
 chmod u+x nvim.appimage
 ```
-
+Python support: https://neovim.io/doc/user/provider.html#provider-python
+```sh
+pip install --user --upgrade neovim
+```
 ### [vim-plug](https://github.com/junegunn/vim-plug)
 Install
 ```sh

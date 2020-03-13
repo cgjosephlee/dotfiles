@@ -54,6 +54,8 @@ let g:ycm_autoclose_preview_window_after_completion = 0
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_global_ycm_extra_conf = '~/.ycm_global_extra_conf.py'
+nnoremap <leader>yd :YcmCompleter GetDoc<CR>
+nnoremap <leader>yg :YcmCompleter GoTo<CR>
 
 " last status
 set laststatus=2
