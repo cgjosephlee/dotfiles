@@ -43,8 +43,6 @@ POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=""
 POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR="%F{grey}\uE0B1"
 POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR=""
 
-# DEFAULT_USER="josephlee"
-# POWERLEVEL9K_CONTEXT_TEMPLATE="%n@%m \uF460"
 POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND="clear"
 POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND="grey"
 POWERLEVEL9K_CONTEXT_ROOT_BACKGROUND="clear"
@@ -79,11 +77,11 @@ POWERLEVEL9K_STATUS_ERROR_FOREGROUND="red"
 POWERLEVEL9K_TIME_BACKGROUND="clear"
 POWERLEVEL9K_TIME_FOREGROUND="cyan"
 
-POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND='clear'
-POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND='magenta'
+POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND="clear"
+POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND="magenta"
 
-POWERLEVEL9K_BACKGROUND_JOBS_BACKGROUND='clear'
-POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND='152'
+POWERLEVEL9K_BACKGROUND_JOBS_BACKGROUND="clear"
+POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND="152"
 
 # load OMZ scripts
 # CASE_SENSITIVE="true"
@@ -98,7 +96,9 @@ zinit snippet OMZ::plugins/zsh_reload/zsh_reload.plugin.zsh
 # load plugins, completions
 zinit ice as"completion"
 zinit snippet https://github.com/cgjosephlee/GNU-parallel-zsh-completion/raw/master/_parallel
+zinit ice blockf
 zinit light esc/conda-zsh-completion
+zinit ice blockf
 zinit light kloetzl/biozsh
 # zinit light zdharma/fast-syntax-highlighting
 zinit wait lucid for \
@@ -138,15 +138,15 @@ alias 6='cd -6'
 alias 7='cd -7'
 alias 8='cd -8'
 alias 9='cd -9'
-alias ls="ls --color=auto --group-directories-first"
-alias ll="ls -lh"
-alias lt="ls -lth"
-alias l="less"
-alias L="less -S"
-alias zl="zless"
-alias zL="zless -S"
-alias grep="grep --color=auto"
-alias tmux="tmux -2"
-alias tl="tmux ls"
-alias tn="tmux new"
-alias ta="tmux a"
+alias ls='ls --color=auto --group-directories-first'
+alias ll='ls -lh'
+alias lt='ls -lth'
+alias l='less'
+alias L='less -S'
+alias zl='zless'
+alias zL='zless -S'
+alias grep='grep --color=auto'
+alias tmux='tmux -2'
+alias tl='tmux ls'
+alias tn='tmux new'
+alias ta='tmux a'

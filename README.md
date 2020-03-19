@@ -23,11 +23,10 @@ Some of my config files (vim, tmux, etc.). Config file should be renamed as `.fi
   - [Misc](#misc)
 - [Zsh](#zsh)
   - [Setup zsh](#setup-zsh)
-  - [Oh my zsh](#oh-my-zsh)
+  - [zinit](#zinit)
   - [Theme](#theme-2)
     - [powerlevel9k](#powerlevel9k)
     - [powerlevel10k](#powerlevel10k)
-    - [dracula](#dracula)
   - [Plugins](#plugins)
     - [Fast-syntax-highlighting](#fast-syntax-highlighting)
     - [biozsh](#biozsh)
@@ -198,17 +197,12 @@ CHSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/ma
 exec zsh
 ```
 
-### [Oh my zsh](https://github.com/robbyrussell/oh-my-zsh)
+### [zinit](https://github.com/zdharma/zinit)
 ```sh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
 ```
 ### Theme
 #### [powerlevel9k](https://github.com/bhilburn/powerlevel9k)
-Installation
-```sh
-git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
-```
-
 For configuration in `.zshrc`, see readme and wiki of powerlevel9k.
 
 For color customization, all supported colors are ([ref](https://github.com/bhilburn/powerlevel9k/wiki/Stylizing-Your-Prompt#segment-color-customization)):
@@ -219,26 +213,15 @@ for code ({000..255}) print -P -- "$code: %F{$code}This is how your text would l
 #### [powerlevel10k](https://github.com/romkatv/powerlevel10k)
 A fast drop-in replacement for Powerlevel9k.
 
-#### [dracula](https://draculatheme.com/zsh/)
-A vampire style theme and color scheme for many programs.
-```sh
-wget -P ~/.oh-my-zsh/custom/themes https://github.com/dracula/zsh/raw/master/dracula.zsh-theme
-```
 ### Plugins
 #### [Fast-syntax-highlighting](https://github.com/zdharma/fast-syntax-highlighting)
 An alternative of [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting).
 ```sh
-git clone https://github.com/zdharma/fast-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/fast-syntax-highlighting
-# add to .zshrc plugin list and restart zsh
-exec zsh
 fast-theme safari
 ```
 
 #### [biozsh](https://github.com/kloetzl/biozsh)
 Zsh autocompletes for plenty bioinfomatic tools.
-```sh
-git clone https://github.com/kloetzl/biozsh.git ~/.oh-my-zsh/custom/plugins/biozsh
-```
 
 ## Vim
 - Make vim a light-weighted python IDE: [ENG](https://realpython.com/vim-and-python-a-match-made-in-heaven/)/[CHN](http://codingpy.com/article/vim-and-python-match-in-heaven/).
@@ -263,15 +246,6 @@ Install
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
-
-<!-- ### [Vundle](https://github.com/VundleVim/Vundle.vim)
-Install
-```sh
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-```
-and configure `.vimrc` (see readme of vundle).
-
-Run `:PluginInstall` in vim or `vim +PluginInstall +qall` in command line. -->
 
 ### [vim-sublime-monokai](https://github.com/ErichDonGubler/vim-sublime-monokai)
 Add to `.vimrc`:
