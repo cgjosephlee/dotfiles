@@ -1,8 +1,8 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # aim to remove latency of loading conda
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"  ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-  fi
+    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
     print -P "%F{33}▓▒░ %F{220}Installing DHARMA Initiative Plugin Manager (zdharma/zinit)…%f"
@@ -96,30 +96,27 @@ zinit snippet OMZ::plugins/zsh_reload/zsh_reload.plugin.zsh
 # load plugins, completions
 zinit ice as"completion"
 zinit snippet https://github.com/cgjosephlee/GNU-parallel-zsh-completion/raw/master/_parallel
-zinit ice blockf
-zinit light esc/conda-zsh-completion
-zinit ice blockf
-zinit light kloetzl/biozsh
-# zinit light zdharma/fast-syntax-highlighting
-zinit wait lucid for \
+zinit wait lucid light-mode for \
     atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
         zdharma/fast-syntax-highlighting \
     blockf \
-        zsh-users/zsh-completions
+        zsh-users/zsh-completions \
+        esc/conda-zsh-completion \
+        kloetzl/biozsh
 
 # auto-completion settings
 # zstyle ':completion:*' verbose yes
 # zstyle ':completion:*:descriptions' format '%B%d%b'
 zstyle ':completion:*:messages' format '%d'
 zstyle ':completion:*:warnings' format 'No matches for: %B%d%b'
-zstyle -s ':completion:*:hosts' hosts _ssh_config
-[[ -r ~/.ssh/config ]] && _ssh_config+=($(cat ~/.ssh/config | sed -ne 's/Host[=\t ]//p'))
+# zstyle -s ':completion:*:hosts' hosts _ssh_config
+[[ -r ~/.ssh/config ]] && _ssh_config+=($(grep -v '#' ~/.ssh/config | sed -ne 's/Host[=\t ]//p'))
 zstyle ':completion:*:hosts' hosts $_ssh_config
 ZLE_SPACE_SUFFIX_CHARS=$'|'
 ZLE_REMOVE_SUFFIX_CHARS=$' \t\n;&'
 
 if [ -f "$HOME/.profile" ]; then
-  source "$HOME/.profile"
+    source "$HOME/.profile"
 fi
 
 # personal aliases
@@ -150,3 +147,4 @@ alias tmux='tmux -2'
 alias tl='tmux ls'
 alias tn='tmux new'
 alias ta='tmux a'
+(( $+commands[nvim] )) && alias vi='nvim'
