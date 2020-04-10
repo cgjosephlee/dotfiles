@@ -120,11 +120,14 @@ if [ -f "$HOME/.profile" ]; then
 fi
 
 # personal aliases
-alias -g ..='cd ..'
-alias -g ...='cd ../..'
-alias -g ....='cd ../../..'
-alias -g .....='cd ../../../..'
-alias -g ......='cd ../../../../..'
+setopt auto_pushd
+setopt pushd_ignore_dups
+setopt pushdminus
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
 alias -- -='cd -'
 alias 1='cd -'
 alias 2='cd -2'
