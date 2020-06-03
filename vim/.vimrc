@@ -11,6 +11,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'jpalardy/vim-slime'
 Plug 'burneyy/vim-snakemake'
+Plug 'JuliaEditorSupport/julia-vim'
 call plug#end()
 
 " User define
