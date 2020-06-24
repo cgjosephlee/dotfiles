@@ -1,5 +1,5 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# aim to remove latency of loading conda
+# Aim to remove latency of loading conda
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"  ]]; then
     source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -25,108 +25,138 @@ zinit light-mode for \
 
 ### End of Zinit's installer chunk
 
-# load theme
+# Load theme
 zinit ice depth=1
 zinit light romkatv/powerlevel10k
 
-POWERLEVEL9K_MODE="nerdfont-complete"
+typeset -g POWERLEVEL9K_MODE="nerdfont-complete"
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(vcs dir_writable dir anaconda)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs command_execution_time time)
+typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(vcs dir_writable dir anaconda newline context prompt_char)
+typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs command_execution_time time newline)
 
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="\u250f"
-POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="\u2517 %F{cyan}`hostname -s` %F{default}\uF460 "
+typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="\u250f "
+typeset -g POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="\u2517 "
 
-POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=""
-POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=""
-POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR="%F{grey}\uE0B1"
-POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR=""
+typeset -g POWERLEVEL9K_BACKGROUND=
+typeset -g POWERLEVEL9K_{LEFT,RIGHT}_{LEFT,RIGHT}_WHITESPACE=
+typeset -g POWERLEVEL9K_{LEFT,RIGHT}_SUBSEGMENT_SEPARATOR=" "
+typeset -g POWERLEVEL9K_{LEFT,RIGHT}_SEGMENT_SEPARATOR=
 
-POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND="clear"
-POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND="grey"
-POWERLEVEL9K_CONTEXT_ROOT_BACKGROUND="clear"
-POWERLEVEL9K_CONTEXT_ROOT_FOREGROUND="red"
+typeset -g POWERLEVEL9K_PROMPT_CHAR_OK_{VIINS,VICMD,VIVIS,VIOWR}_FOREGROUND="white"
+typeset -g POWERLEVEL9K_PROMPT_CHAR_ERROR_{VIINS,VICMD,VIVIS,VIOWR}_FOREGROUND="red"
 
-POWERLEVEL9K_ANACONDA_LEFT_DELIMITER=""
-POWERLEVEL9K_ANACONDA_RIGHT_DELIMITER=""
-POWERLEVEL9K_ANACONDA_BACKGROUND="clear"
-POWERLEVEL9K_ANACONDA_FOREGROUND="009"
+typeset -g POWERLEVEL9K_CONTEXT_{,REMOTE}TEMPLATE="%m"
+typeset -g POWERLEVEL9K_CONTEXT_{,REMOTE}FOREGROUND="cyan"
+typeset -g POWERLEVEL9K_CONTEXT_{ROOT,REMOTE_SUDO}_TEMPLATE="%B%n@%m"
+typeset -g POWERLEVEL9K_CONTEXT_{ROOT,REMOTE_SUDO}_FOREGROUND="red"
 
-POWERLEVEL9K_VCS_CLEAN_BACKGROUND="clear"
-POWERLEVEL9K_VCS_CLEAN_FOREGROUND="green"
-POWERLEVEL9K_VCS_MODIFIED_BACKGROUND="clear"
-POWERLEVEL9K_VCS_MODIFIED_FOREGROUND="yellow"
-POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND="clear"
-POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND="yellow"
+typeset -g POWERLEVEL9K_ANACONDA_LEFT_DELIMITER=""
+typeset -g POWERLEVEL9K_ANACONDA_RIGHT_DELIMITER=""
+typeset -g POWERLEVEL9K_ANACONDA_FOREGROUND="009"
 
-POWERLEVEL9K_DIR_DEFAULT_BACKGROUND="clear"
-POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="105"
-POWERLEVEL9K_DIR_HOME_BACKGROUND="clear"
-POWERLEVEL9K_DIR_HOME_FOREGROUND="075"
-POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND="clear"
-POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="075"
-POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_BACKGROUND="clear"
-POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_FOREGROUND="red"
+typeset -g POWERLEVEL9K_VCS_CLEAN_FOREGROUND="green"
+typeset -g POWERLEVEL9K_VCS_MODIFIED_FOREGROUND="yellow"
+typeset -g POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND="yellow"
 
-POWERLEVEL9K_STATUS_OK_BACKGROUND="clear"
-POWERLEVEL9K_STATUS_OK_FOREGROUND="green"
-POWERLEVEL9K_STATUS_ERROR_BACKGROUND="clear"
-POWERLEVEL9K_STATUS_ERROR_FOREGROUND="red"
+typeset -g POWERLEVEL9K_SHORTEN_STRATEGY="truncate_to_unique"
+typeset -g POWERLEVEL9K_DIR_MAX_LENGTH=""
+typeset -g POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="105"
+typeset -g POWERLEVEL9K_DIR_HOME_FOREGROUND="075"
+typeset -g POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="075"
+typeset -g POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_FOREGROUND="red"
 
-POWERLEVEL9K_TIME_BACKGROUND="clear"
-POWERLEVEL9K_TIME_FOREGROUND="cyan"
+typeset -g POWERLEVEL9K_STATUS_OK_FOREGROUND="green"
+typeset -g POWERLEVEL9K_STATUS_ERROR_FOREGROUND="red"
 
-POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND="clear"
-POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND="magenta"
+typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_FORMAT="d h m s"
+typeset -g POWERLEVEL9K_TIME_FOREGROUND="cyan"
 
-POWERLEVEL9K_BACKGROUND_JOBS_BACKGROUND="clear"
-POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND="152"
+typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND="magenta"
 
-# load OMZ scripts
+typeset -g POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND="152"
+
+# Enable vi key bindings
+# zinit snippet OMZ::lib/key-bindings.zsh  # default emacs key bindings
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey -v
+bindkey "^?" backward-delete-char
+bindkey "^h" backward-delete-char
+bindkey "^w" backward-kill-word
+bindkey "^[OA" up-line-or-beginning-search
+bindkey "^[OB" down-line-or-beginning-search
+bindkey -M vicmd "k" up-line-or-beginning-search
+bindkey -M vicmd "j" down-line-or-beginning-search
+KEYTIMEOUT=1
+
+# Load OMZ scripts
 # CASE_SENSITIVE="true"
 HYPHEN_INSENSITIVE="true"
 zinit snippet OMZ::lib/completion.zsh
 zinit snippet OMZ::lib/history.zsh
-zinit snippet OMZ::lib/key-bindings.zsh
-# zinit snippet OMZ::lib/theme-and-appearance.zsh
 zinit snippet OMZ::plugins/git/git.plugin.zsh
 zinit snippet OMZ::plugins/zsh_reload/zsh_reload.plugin.zsh
 
-# load plugins, completions
-zinit ice as"completion"
-zinit snippet https://github.com/cgjosephlee/GNU-parallel-zsh-completion/raw/master/_parallel
+# Load programs
+zinit from"gh-r" as"program" light-mode for \
+    @junegunn/fzf-bin \
+    mv"fd* -> fd" pick"fd/fd" @sharkdp/fd \
+    # mv"exa* -> exa" ogham/exa \
+    # ver"latest" bpick"*appimage" mv"nvim* -> nvim" neovim/neovim
+
+# Load plugins
 zinit wait lucid light-mode for \
     atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
         zdharma/fast-syntax-highlighting \
-    blockf \
-        zsh-users/zsh-completions \
-        esc/conda-zsh-completion \
-        kloetzl/biozsh
+    multisrc:"shell/*.zsh" junegunn/fzf \
+    # marlonrichert/zsh-autocomplete
 
-# load dircolors
+# Load completions
+zinit ice wait lucid as"completion"
+zinit snippet https://github.com/cgjosephlee/GNU-parallel-zsh-completion/raw/master/_parallel
+zinit wait lucid light-mode blockf for \
+    zsh-users/zsh-completions \
+    esc/conda-zsh-completion \
+    kloetzl/biozsh
+
+# Load dircolors
 # https://zdharma.org/zinit/wiki/LS_COLORS-explanation/
 zinit ice atclone"dircolors -b src/dir_colors > clrs.zsh" \
-    atpull'%atclone' pick"clrs.zsh" nocompile'!' \
-    atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”'
+    atpull"%atclone" pick"clrs.zsh" nocompile"!" \
+    atload'zstyle ":completion:*" list-colors "${(s.:.)LS_COLORS}"'
 zinit light arcticicestudio/nord-dircolors
 
-# auto-completion settings
-# zstyle ':completion:*' verbose yes
-# zstyle ':completion:*:descriptions' format '%B%d%b'
-zstyle ':completion:*:messages' format '%d'
-zstyle ':completion:*:warnings' format 'No matches for: %B%d%b'
-# zstyle -s ':completion:*:hosts' hosts _ssh_config
+# FZF settings
+export FZF_DEFAULT_COMMAND="fd --type f --hidden --exclude .git"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_COMPLETION_TRIGGER="**"
+export FZF_COMPLETION_OPTS=""
+_fzf_compgen_path() {
+    fd --hidden --follow --exclude ".git" . "$1"
+}
+_fzf_compgen_dir() {
+    fd --type d --hidden --follow --exclude ".git" . "$1"
+}
+
+# Auto-completion settings
+# zstyle ":completion:*" verbose yes
+# zstyle ":completion:*:descriptions" format "%B%d%b"
+zstyle ":completion:*:messages" format "%d"
+zstyle ":completion:*:warnings" format "No matches for: %B%d%b"
+# zstyle -s ":completion:*:hosts" hosts _ssh_config
 [[ -r ~/.ssh/config ]] && _ssh_config+=($(grep -v '#' ~/.ssh/config | sed -ne 's/Host[=\t ]//p'))
-zstyle ':completion:*:hosts' hosts $_ssh_config
+zstyle ":completion:*:hosts" hosts $_ssh_config
 ZLE_SPACE_SUFFIX_CHARS=$'|'
 ZLE_REMOVE_SUFFIX_CHARS=$' \t\n;&'
 
+# Load custome profile
 if [ -f "$HOME/.profile" ]; then
     source "$HOME/.profile"
 fi
 
-# personal aliases
+# Personal aliases
 setopt auto_pushd
 setopt pushd_ignore_dups
 setopt pushdminus
@@ -158,3 +188,5 @@ alias tl='tmux ls'
 alias tn='tmux new'
 alias ta='tmux a'
 (( $+commands[nvim] )) && alias vi='nvim'
+alias rp='realpath'
+alias rps='realpath -s'
