@@ -77,7 +77,9 @@ set ttimeoutlen=10
 
 " nerdcommenter
 let g:NERDSpaceDelims=1
-let g:NERDCustomDelimiters = {'python': {'left': '#'}}
+let g:NERDCustomDelimiters = {
+    \ 'python': {'left': '#'},
+    \ 'julia': {'left': '#'}}
 let NERDDefaultAlign="left"
 
 " indentLine
