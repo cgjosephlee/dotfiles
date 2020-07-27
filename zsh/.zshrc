@@ -87,6 +87,8 @@ bindkey "^h" backward-delete-char
 bindkey "^w" backward-kill-word
 bindkey "^[OA" up-line-or-beginning-search
 bindkey "^[OB" down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search
+bindkey "^[[B" down-line-or-beginning-search
 bindkey -M vicmd "k" up-line-or-beginning-search
 bindkey -M vicmd "j" down-line-or-beginning-search
 KEYTIMEOUT=1
@@ -157,6 +159,7 @@ if [ -f "$HOME/.profile" ]; then
 fi
 
 # Personal aliases
+setopt interactivecomments  # enable comments
 setopt auto_pushd
 setopt pushd_ignore_dups
 setopt pushdminus
