@@ -75,6 +75,10 @@ set noshowmode
 set ttimeoutlen=10
 " let g:airline_powerline_fonts = 1
 
+" auto-pairs
+" https://github.com/jiangmiao/auto-pairs/issues/211
+au FileType python let b:AutoPairs = AutoPairsDefine({"f'" : "'", "r'" : "'", "b'" : "'"})
+
 " nerdcommenter
 let g:NERDSpaceDelims=1
 let g:NERDCustomDelimiters = {
@@ -93,7 +97,7 @@ let g:slime_default_config = {"socket_name": "default", "target_pane": ".2"}
 
 " configs for *py
 " let python_highlight_all=1
-au BufNewFile,BufRead *.py
+au FileType python
     \ set tabstop=4 |
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
