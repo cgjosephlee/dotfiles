@@ -1,3 +1,0 @@
-[submodule "vendor/stow"]
-	path = vendor/stow
-	url = https://git.savannah.gnu.org/git/stow.git
