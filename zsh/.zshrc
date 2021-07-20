@@ -105,21 +105,21 @@ zinit snippet OMZ::plugins/zsh_reload/zsh_reload.plugin.zsh
 
 # Load programs
 zinit from"gh-r" as"program" light-mode for \
-    @junegunn/fzf-bin \
-    mv"fd* -> fd" pick"fd/fd" @sharkdp/fd \
-    # mv"exa* -> exa" ogham/exa \
+    @junegunn/fzf \
+    pick"fd*/fd" @sharkdp/fd \
     # ver"latest" bpick"*appimage" mv"nvim* -> nvim" neovim/neovim
 
 # Load plugins
 zinit wait lucid light-mode for \
     atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
         zdharma/fast-syntax-highlighting \
-    multisrc:"shell/*.zsh" junegunn/fzf \
-    # marlonrichert/zsh-autocomplete
+    multisrc"shell/*.zsh" id-as"junegunn/fzf_completions" \
+        junegunn/fzf
 
 # Load completions
-zinit ice wait lucid as"completion"
-zinit snippet https://github.com/cgjosephlee/GNU-parallel-zsh-completion/raw/master/_parallel
+zinit wait lucid as"completion" for \
+    https://github.com/cgjosephlee/GNU-parallel-zsh-completion/raw/master/_parallel \
+    https://github.com/sharkdp/fd/raw/master/contrib/completion/_fd
 zinit wait lucid light-mode blockf for \
     zsh-users/zsh-completions \
     esc/conda-zsh-completion \
