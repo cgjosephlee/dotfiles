@@ -119,7 +119,9 @@ zinit wait lucid light-mode for \
 # Load completions
 zinit wait lucid as"completion" for \
     https://github.com/cgjosephlee/GNU-parallel-zsh-completion/raw/master/_parallel \
-    https://github.com/sharkdp/fd/raw/master/contrib/completion/_fd
+    https://github.com/sharkdp/fd/raw/master/contrib/completion/_fd \
+    https://raw.githubusercontent.com/TheLocehiliosan/yadm/master/completion/zsh/_yadm \
+    https://gist.githubusercontent.com/cgjosephlee/3881444e34a0b347075ba317150a2758/raw/86c3fe4ead1f83ae3e72cb37b7a96952ffdf07bb/_csvtk
 zinit wait lucid light-mode blockf for \
     zsh-users/zsh-completions \
     esc/conda-zsh-completion \
