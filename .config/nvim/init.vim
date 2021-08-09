@@ -1,6 +1,6 @@
 call plug#begin(stdpath('data') . '/plugged')
 " theme
-Plug 'ErichDonGubler/vim-sublime-monokai'
+Plug 'patstockwell/vim-monokai-tasty'
 Plug 'hoob3rt/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 " coding utilities
@@ -14,6 +14,7 @@ Plug 'qwertologe/nextval.vim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'kabouzeid/nvim-lspinstall'
 Plug 'hrsh7th/nvim-compe'
+Plug 'glepnir/lspsaga.nvim'
 " python
 Plug 'Vimjas/vim-python-pep8-indent'
 " other lang
@@ -22,21 +23,24 @@ Plug 'JuliaEditorSupport/julia-vim'
 call plug#end()
 
 " User define
-colorscheme sublimemonokai
+colorscheme vim-monokai-tasty
 syntax on
-" set termguicolors
-set t_Co=256
+if has('termguicolors')
+    set termguicolors
+elseif
+    set t_Co=256
+endif
 set encoding=utf-8
 set splitbelow
 set splitright
-set ai
+set autoindent
 set tabstop=4
 set shiftwidth=4
 set expandtab
 set number
 set relativenumber
 set confirm
-set ic
+set ignorecase
 set hlsearch
 set incsearch
 set mouse=a
@@ -63,8 +67,8 @@ let g:NERDCustomDelimiters = {
 let NERDDefaultAlign="left"
 
 " indentLine
-let g:indentLine_enabled = 1
-let g:indentLine_color_term = 0
+let g:indentLine_enabled=1
+let g:indentLine_color_term=0
 
 " vim-eft
 nmap ; <Plug>(eft-repeat)
@@ -93,4 +97,4 @@ au FileType python
     \ set fileformat=unix
 
 " load init.lua
-:lua require'init'
+:lua require('init')
