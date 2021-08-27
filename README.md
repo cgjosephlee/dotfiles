@@ -3,7 +3,7 @@ Some of my config files (vim, tmux, etc.). Config file should be renamed as `.fi
 
 ## TOC <!-- omit in toc -->
 <!-- created by vscode Markdown All in One -->
-- [Manage with stow](#manage-with-stow)
+- [Manage with yadm](#manage-with-yadm)
   - [Installation](#installation)
   - [Usage](#usage)
 - [iTerm2](#iterm2)
@@ -14,86 +14,64 @@ Some of my config files (vim, tmux, etc.). Config file should be renamed as `.fi
   - [Package control](#package-control)
   - [Theme](#theme)
   - [Color scheme](#color-scheme)
-  - [SublimeREPL](#sublimerepl)
   - [Other plugins](#other-plugins)
 - [Bash](#bash)
   - [Bash-it](#bash-it)
   - [Oh my bash](#oh-my-bash)
   - [Theme](#theme-1)
-  - [Misc](#misc)
+  - [PS1 config](#ps1-config)
 - [Zsh](#zsh)
   - [Setup zsh](#setup-zsh)
   - [zinit](#zinit)
-  - [Theme](#theme-2)
-    - [powerlevel9k](#powerlevel9k)
-    - [powerlevel10k](#powerlevel10k)
   - [Plugins](#plugins)
+    - [powerlevel10k](#powerlevel10k)
     - [Fast-syntax-highlighting](#fast-syntax-highlighting)
     - [biozsh](#biozsh)
-- [Vim](#vim)
-  - [Manual installation](#manual-installation)
-  - [Useful shortcuts](#useful-shortcuts)
-  - [vim-plug](#vim-plug)
-  - [vim-sublime-monokai](#vim-sublime-monokai)
-  - [YouCompleteMe](#youcompleteme)
-  - [Syntastic](#syntastic)
-  - [Nerd commenter](#nerd-commenter)
-  - [vim-slime](#vim-slime)
-  - [Other plugins](#other-plugins-1)
 - [NeoVim](#neovim)
-  - [Manual installation](#manual-installation-1)
-  - [vim-plug](#vim-plug-1)
-  - [Other plugins](#other-plugins-2)
+  - [Installation](#installation-1)
+  - [vim-plug](#vim-plug)
+  - [Nerd commenter](#nerd-commenter)
+  - [LSP](#lsp)
+    - [Install nodejs](#install-nodejs)
+    - [Install language server](#install-language-server)
+  - [Other plugins](#other-plugins-1)
 - [Tmux](#tmux)
-  - [Manual installation](#manual-installation-2)
+  - [Installation](#installation-2)
+    - [Source](#source)
+    - [Appimage](#appimage)
   - [Tmux Plugin Manager (tpm)](#tmux-plugin-manager-tpm)
-  - [Other plugins](#other-plugins-3)
-- [Misc](#misc-1)
+  - [Other plugins](#other-plugins-2)
+- [Misc](#misc)
   - [Manage dotfiles](#manage-dotfiles)
+  - [Nvim config references](#nvim-config-references)
 
 
-## Manage with stow
+## Manage with yadm
 ### Installation
 Linux
 ```
-sudo apt-get install stow
+curl -fLo yadm https://github.com/TheLocehiliosan/yadm/raw/master/yadm && chmod a+x yadm
 ```
 MacOS
 ```
-brew install stow
-```
-From source
-```sh
-git submodule init
-git submodule update
-cd vendor/stow
-autoreconf -iv
-./configure && make install
+brew install yadm
 ```
 
 ### Usage
+yadm inherits all of Git’s features.
 ```sh
-# install
-stow -v -t $HOME karabiner
-
-# uninstall
-stow -v -t $HOME karabiner -D
+yadm clone https://github.com/cgjosephlee/Config_files
 ```
 
 ## iTerm2
 ### Color preset
-Builtin Pastel Dark
-
-![](https://github.com/mbadolato/iTerm2-Color-Schemes/blob/master/screenshots/builtin_pastel_dark.png)
-
-[More presets](https://github.com/mbadolato/iTerm2-Color-Schemes)
+Nord, background = '#212327'.
 
 ### Font
-Rrgular: 12pt Monaco
-
-Powerline: 12pt Sauce Code Pro Nerd Font Complete
+13pt MesloLGS Nerd Font (patched Menlo, LGS: line gap small)
 ```
-brew cash install font-sourcecodepro-nerd-font
+brew tap homebrew/cask-fonts
+brew install font-meslo-lg-nerd-font
 ```
 
 ### Other emulators
@@ -119,37 +97,14 @@ brew cash install font-sourcecodepro-nerd-font
 ### Color scheme
 Default Monokai
 
-### [SublimeREPL](https://github.com/wuub/SublimeREPL)
-Outdated package, patch is required for ipython.
-- https://gist.github.com/MattDMo/6cb1dfbe8a124e1ca5af
-- https://gist.github.com/pe224/ec5d7effa26e8f736fa2f6bb8f515606 (works with ipython 6)
-
-Keybindings:
-- Evaluate in REPL:
-    - <kbd>ctrl</kbd> + <kbd>,</kbd>, <kbd>s</kbd> Selection
-    - <kbd>ctrl</kbd> + <kbd>,</kbd>, <kbd>f</kbd> File
-    - <kbd>ctrl</kbd> + <kbd>,</kbd>, <kbd>l</kbd> Lines
-    - <kbd>ctrl</kbd> + <kbd>,</kbd>, <kbd>b</kbd> Block
-- Transfer in REPL (just copy, without evaluating it):
-    - <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>,</kbd>, <kbd>s</kbd> Selection
-    - <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>,</kbd>, <kbd>f</kbd> File
-    - <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>,</kbd>, <kbd>l</kbd> Lines
-    - <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>,</kbd>, <kbd>b</kbd> Block
-- Sent SIGINT (force stop)
-    - <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>c</kbd>
-
 ### Other plugins
 - AlignTab
-- Anaconda
-- Emmet
 - Markdown Preview
 - MarkdownTOC ([usage](https://github.com/naokazuterada/MarkdownTOC#usage))
 - Side​Bar​Enhancements
-- SublimeCodeIntel
 
 ## Bash
 ### [Bash-it](https://github.com/Bash-it/bash-it)
-A community Bash framework.
 Installation
 ```sh
 git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
@@ -167,8 +122,7 @@ A delightful community-driven framework.
 ### Theme
 - [Median](https://gist.github.com/cgjosephlee/69bfd32a39dad7c5a6fab10c0551806f)
 
-### Misc
-#### Bash PS1 config <!-- omit in toc -->
+### PS1 config
 ```bash
 export PS1='\[\e[1;33m\]$PWD/ \[\e[0m\]\n\u@\h@\t $ '
 ```
@@ -191,8 +145,6 @@ tar Jxf zsh.tar.xz
 cd zsh-<version>
 ./configure --prefix=$HOME/.local
 make && make install
-# install oh my zsh
-CHSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 # activate zsh in , e.g. .bashrc
 exec zsh
 ```
@@ -201,19 +153,30 @@ exec zsh
 ```sh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
 ```
-### Theme
-#### [powerlevel9k](https://github.com/bhilburn/powerlevel9k)
-For configuration in `.zshrc`, see readme and wiki of powerlevel9k.
-
-For color customization, all supported colors are ([ref](https://github.com/bhilburn/powerlevel9k/wiki/Stylizing-Your-Prompt#segment-color-customization)):
-```sh
-for code ({000..255}) print -P -- "$code: %F{$code}This is how your text would look like%f"
-```
-
+### Plugins
 #### [powerlevel10k](https://github.com/romkatv/powerlevel10k)
 A fast drop-in replacement for Powerlevel9k.
+For color customization, all supported colors are ([ref](https://github.com/bhilburn/powerlevel9k/wiki/Stylizing-Your-Prompt#segment-color-customization)):
+```sh
+# 256 colors
+for code ({000..255}) print -P -- "$code: %F{$code}This is how your text would look like%f"
 
-### Plugins
+# true color
+awk 'BEGIN{
+  s="/\\/\\/\\/\\/\\"; s=s s s s s s s s;
+  for (colnum = 0; colnum<77; colnum++) {
+    r = 255-(colnum*255/76);
+    g = (colnum*510/76);
+    b = (colnum*255/76);
+    if (g>255) g = 510-g;
+    printf "\033[48;2;%d;%d;%dm", r,g,b;
+    printf "\033[38;2;%d;%d;%dm", 255-r,255-g,255-b;
+    printf "%s\033[0m", substr(s,colnum+1,1);
+  }
+  printf "\n";
+}'
+```
+
 #### [Fast-syntax-highlighting](https://github.com/zdharma/fast-syntax-highlighting)
 An alternative of [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting).
 ```sh
@@ -223,124 +186,15 @@ fast-theme safari
 #### [biozsh](https://github.com/kloetzl/biozsh)
 Zsh autocompletes for plenty bioinfomatic tools.
 
-## Vim
-- Make vim a light-weighted python IDE: [ENG](https://realpython.com/vim-and-python-a-match-made-in-heaven/)/[CHN](http://codingpy.com/article/vim-and-python-match-in-heaven/).
-- [Vim tips wiki](http://vim.wikia.com/wiki/Vim_Tips_Wiki).
-
-### Manual installation
-_Painful and not tried. Consider to try NeoVim._
-- https://www.vim.org/git.php
-- https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source
-
-### Useful shortcuts
-- `[count]G`: jump to line.
-- `C-b` and `C-f`: pageup and pagedown.
-- `f[character]` and `t[character]`: jump to [character] in line (`;` and `,` for next and previous match).
-- `vip` and `vap`: select paragraph (versatile selection:`v[count][ia][wspb()[]{}"']` see [manual](http://vimdoc.sourceforge.net/htmldoc/motion.html#v_ip)).
-- `C-a` and `C-x`: increase or decrease the number (remap to `\-a` and `\-x` to avoild conflict with tmux)
-
-### [vim-plug](https://github.com/junegunn/vim-plug)
-Install
-```sh
-# for vim
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-```
-
-### [vim-sublime-monokai](https://github.com/ErichDonGubler/vim-sublime-monokai)
-Add to `.vimrc`:
-```vim
-syntax on
-colorscheme sublimemonokai
-```
-
-### [YouCompleteMe](https://github.com/Valloric/YouCompleteMe)
-May need to compile manually.
-```sh
-cd ~/.vim/plugged/YouCompleteMe && ./install.py
-# for mac, use system python to build
-cd ~/.vim/plugged/YouCompleteMe && /usr/bin/python ./install.py
-```
-Settings
-```vim
-let g:ycm_autoclose_preview_window_after_completion = 0
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_seed_identifiers_with_syntax = 1
-```
-To support autocompletion for custome packages (eq. Anaconda), here add a python script `.ycm_global_extra_conf.py` to configure package path.
-
-Python version for compiling ycm and launching ycm interpreter can be different (I compiled with system python 2.7 and launch ycm interpreter with anaconda python 3.6, and have completion for packages installed by anaconda).
-```vim
-let g:ycm_global_ycm_extra_conf = '~/.ycm_global_extra_conf.py'
-```
-`:YcmCompleter` subcommands
-```
-:YcmCompleter GetDoc
-:YcmCompleter GoTo   # can be involked with ctrl+O and ctrl+I
-```
-
-### [Syntastic](https://github.com/vim-syntastic/syntastic)
-To lint `.py` with flake8, need to install flake8 first.
-```sh
-conda install flake8
-```
-```vim
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_python_checkers = ['flake8']
-```
-Color test for configuring color scheme
-```vim
-:so $VIMRUNTIME/syntax/colortest.vim
-```
-
-### [Nerd commenter](https://github.com/scrooloose/nerdcommenter)
-Default `<leader>` is `\`.
-
-Add a space after comment sign
-```vim
-let g:NERDSpaceDelims=1
-```
-Space may be duplicated in some language (e.g. python), to workaround set
-```vim
-let g:NERDCustomDelimiters = {'python': {'left': '#'}}
-```
-
-### [vim-slime](https://github.com/jpalardy/vim-slime)
-`C-c C-c` to sent seleted code. Use visual mode to select or `vip` (select paragraph) before senting.
-
-`C-c v` or `:SlimeConfig` to reconfigure the target pane.
-
-Configuration for tmux and ipython. Select the `default` tmux session, current window and second pane.
-```vim
-let g:slime_target = "tmux"
-let g:slime_python_ipython = 1
-let g:slime_default_config = {"socket_name": "default", "target_pane": ".2"}
-```
-
-### Other plugins
-- [vim-airline](https://github.com/vim-airline/vim-airline)
-- [auto-pairs](https://github.com/jiangmiao/auto-pairs)
-- [vim-surround](https://github.com/tpope/vim-surround)
-- [vim-easy-align](https://github.com/junegunn/vim-easy-align)
-- [vim-multiple-cursors](https://github.com/terryma/vim-multiple-cursors)
-- [coc.nvim](https://github.com/neoclide/coc.nvim) (language server protocol support)
-- [nerdtree](https://github.com/preservim/nerdtree)
-- indentpython.vim
-- nextval
-
 ## [NeoVim](https://neovim.io)
-- Config path: `~/.config/nvim/init.nvim`
-- Differences between Nvim and Vim: https://neovim.io/doc/user/vim_diff.html
-
-### Manual installation
+### Installation
 Just download and enjoy!
 ```sh
 # for linux
-curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
-chmod u+x nvim.appimage
+curl -fLo nvim https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
+chmod +x nvim
 ```
-Python support: https://neovim.io/doc/user/provider.html#provider-python
+Python support:
 ```sh
 pip install --user --upgrade neovim
 ```
@@ -351,18 +205,65 @@ Install
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
+Install plugins
+```
+:PlugInstall
+```
+
+### [Nerd commenter](https://github.com/scrooloose/nerdcommenter)
+`<leader>` is mapped to `\`.
+
+Add a space after comment sign:
+```vim
+let g:NERDSpaceDelims=1
+```
+Space may be duplicated in some language (e.g. python), to workaround:
+```vim
+let g:NERDCustomDelimiters = {'python': {'left': '#'}}
+```
+
+### LSP
+https://github.com/neovim/nvim-lspconfig
+https://github.com/kabouzeid/nvim-lspinstall
+https://github.com/hrsh7th/nvim-compe
+
+#### Install nodejs
+https://nodejs.org/en/download/
+```sh
+VERSION=v14.17.3
+DISTRO=linux-x64
+PREFIX=$HOME/local
+wget https://nodejs.org/dist/$VERSION/node-$VERSION-$DISTRO.tar.xz
+tar -xJf node-$VERSION-$DISTRO.tar.xz -C $PREFIX
+ln -s $PREFIX/node-$VERSION-$DISTRO/bin/* $PREFIX/bin
+```
+
+#### Install language server
+```
+:LspInstall <language>
+```
 
 ### Other plugins
-- [deoplete.nvim](https://github.com/Shougo/deoplete.nvim) (autocompletion)
-- [ncm2](https://github.com/ncm2/ncm2) (autocompletion)
+- [vim-easy-align](https://github.com/junegunn/vim-easy-align)
+- [vim-multiple-cursors](https://github.com/terryma/vim-multiple-cursors)
+- [nerdtree](https://github.com/preservim/nerdtree)
 
-## [Tmux](https://github.com/tmux/tmux)
-### Manual installation
+## Tmux
+### Installation
+#### Source
+https://github.com/tmux/tmux
 1. Install [libevent](https://github.com/libevent/libevent)
 2. Install tmux
 ```sh
 ./configure CFLAGS="-I$HOME/.local/include" LDFLAGS="-L$HOME/.local/lib" --prefix=$HOME/.local
 make && make install
+```
+
+#### Appimage
+https://github.com/nelsonenzo/tmux-appimage/releases
+```
+curl -fLo tmux https://github.com/nelsonenzo/tmux-appimage/releases/download/tmux3.1b/tmux-3.1b-x86_64.AppImage
+chmod +x tmux
 ```
 
 ### [Tmux Plugin Manager (tpm)](https://github.com/tmux-plugins/tpm)
@@ -394,7 +295,11 @@ or via command line ([ref](https://github.com/tmux-plugins/tpm/blob/master/docs/
 ## Misc
 ### Manage dotfiles
 - [Using GNU Stow to manage dotfiles](https://farseerfc.me/using-gnu-stow-to-manage-your-dotfiles.html)
-- [dotfiles example](https://github.com/xero/dotfiles)
 - https://github.com/TheLocehiliosan/yadm
 - https://github.com/thoughtbot/rcm
 - https://github.com/andsens/homeshick
+
+### Nvim config references
+- https://github.com/ayamir/nvimdots
+  https://zhuanlan.zhihu.com/p/382092667
+- https://github.com/kabouzeid/dotfiles/tree/master/nvim
