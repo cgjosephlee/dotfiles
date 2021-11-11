@@ -5,9 +5,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"  ]
 fi
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
-    print -P "%F{33}▓▒░ %F{220}Installing DHARMA Initiative Plugin Manager (zdharma/zinit)…%f"
+    print -P "%F{33}▓▒░ %F{220}Installing DHARMA Initiative Plugin Manager (zdharma-continuum/zinit)…%f"
     command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
-    command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
+    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.zinit/bin" && \
         print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
         print -P "%F{160}▓▒░ The clone has failed.%f%b"
 fi
@@ -19,10 +19,10 @@ autoload -Uz _zinit
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
 zinit light-mode for \
-    zinit-zsh/z-a-rust \
-    zinit-zsh/z-a-patch-dl \
-    zinit-zsh/z-a-as-monitor \
-    zinit-zsh/z-a-bin-gem-node
+    zdharma-continuum/z-a-rust \
+    zdharma-continuum/z-a-patch-dl \
+    zdharma-continuum/z-a-as-monitor \
+    zdharma-continuum/z-a-bin-gem-node
 
 ### End of Zinit's installer chunk
 
@@ -113,7 +113,7 @@ zinit from"gh-r" as"program" light-mode for \
 # Load plugins
 zinit wait lucid light-mode for \
     atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
-        zdharma/fast-syntax-highlighting \
+        zdharma-continuum/fast-syntax-highlighting \
     multisrc"shell/*.zsh" id-as"junegunn/fzf_completions" \
         junegunn/fzf
 
@@ -130,6 +130,7 @@ zinit wait lucid light-mode blockf for \
 
 # Load dircolors
 # https://zdharma.org/zinit/wiki/LS_COLORS-explanation/
+# https://zdharma-continuum.github.io/zinit/wiki/LS_COLORS-explanation/
 zinit ice atclone"dircolors -b src/dir_colors > clrs.zsh" \
     atpull"%atclone" pick"clrs.zsh" nocompile"!" \
     atload'zstyle ":completion:*" list-colors "${(s.:.)LS_COLORS}"'
