@@ -102,26 +102,28 @@ HYPHEN_INSENSITIVE="true"
 zinit snippet OMZ::lib/completion.zsh
 zinit snippet OMZ::lib/history.zsh
 zinit snippet OMZ::plugins/git/git.plugin.zsh
-zinit snippet OMZ::plugins/zsh_reload/zsh_reload.plugin.zsh
 
 # Load programs
-zinit from"gh-r" as"program" light-mode for \
+zinit wait lucid from"gh-r" as"program" for \
     @junegunn/fzf \
-    pick"fd*/fd" @sharkdp/fd \
-    # ver"latest" bpick"*appimage" mv"nvim* -> nvim" neovim/neovim
+    pick"**/fd" @sharkdp/fd \
+    pick"**/bat" @sharkdp/bat \
+    pick"**/exa" @ogham/exa
 
 # Load plugins
 zinit wait lucid light-mode for \
     atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
         zdharma-continuum/fast-syntax-highlighting \
     multisrc"shell/*.zsh" id-as"junegunn/fzf_completions" \
-        junegunn/fzf
+        junegunn/fzf \
+    Tarrasch/zsh-bd
 
 # Load completions
 zinit wait lucid as"completion" for \
     https://github.com/cgjosephlee/GNU-parallel-zsh-completion/raw/master/_parallel \
     https://github.com/sharkdp/fd/raw/master/contrib/completion/_fd \
-    https://raw.githubusercontent.com/TheLocehiliosan/yadm/master/completion/zsh/_yadm \
+    https://github.com/ogham/exa/raw/master/completions/zsh/_exa \
+    https://github.com/TheLocehiliosan/yadm/raw/master/completion/zsh/_yadm \
     https://gist.githubusercontent.com/cgjosephlee/3881444e34a0b347075ba317150a2758/raw/86c3fe4ead1f83ae3e72cb37b7a96952ffdf07bb/_csvtk
 zinit wait lucid light-mode blockf for \
     zsh-users/zsh-completions \
@@ -129,7 +131,6 @@ zinit wait lucid light-mode blockf for \
     kloetzl/biozsh
 
 # Load dircolors
-# https://zdharma.org/zinit/wiki/LS_COLORS-explanation/
 # https://zdharma-continuum.github.io/zinit/wiki/LS_COLORS-explanation/
 zinit ice atclone"dircolors -b src/dir_colors > clrs.zsh" \
     atpull"%atclone" pick"clrs.zsh" nocompile"!" \
@@ -159,12 +160,15 @@ zstyle ":completion:*:hosts" hosts $_ssh_config
 ZLE_SPACE_SUFFIX_CHARS=$'|'
 ZLE_REMOVE_SUFFIX_CHARS=$' \t\n;&'
 
-# Load custome profile
+# Load custom profile
 if [ -f "$HOME/.profile" ]; then
     source "$HOME/.profile"
 fi
 
-# Personal aliases
+# Functions
+src() {exec $SHELL}
+
+# Aliases
 setopt interactivecomments  # enable comments
 setopt auto_pushd
 setopt pushd_ignore_dups
@@ -185,8 +189,10 @@ alias 7='cd -7'
 alias 8='cd -8'
 alias 9='cd -9'
 alias ls='ls --color=auto --group-directories-first'
-alias ll='ls -lh'
-alias lt='ls -lth'
+alias lx='exa --group-directories-first'
+alias la='exa --group-directories-first -a'
+alias ll='exa -lgb --time-style=long-iso --icons --group-directories-first'
+alias lt='exa -lgb --time-style=long-iso --icons -s new'
 alias l='less'
 alias L='less -S'
 alias zl='zless'
