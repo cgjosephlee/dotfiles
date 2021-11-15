@@ -19,10 +19,7 @@ autoload -Uz _zinit
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
 zinit light-mode for \
-    zdharma-continuum/z-a-rust \
-    zdharma-continuum/z-a-patch-dl \
-    zdharma-continuum/z-a-as-monitor \
-    zdharma-continuum/z-a-bin-gem-node
+    NICHOLAS85/z-a-linkbin
 
 ### End of Zinit's installer chunk
 
@@ -104,11 +101,14 @@ zinit snippet OMZ::lib/history.zsh
 zinit snippet OMZ::plugins/git/git.plugin.zsh
 
 # Load programs
-zinit wait lucid from"gh-r" as"program" for \
-    @junegunn/fzf \
-    pick"**/fd" @sharkdp/fd \
-    pick"**/bat" @sharkdp/bat \
-    pick"**/exa" @ogham/exa
+zinit wait lucid from"gh-r" as"null" for \
+    lbin"!fzf" @junegunn/fzf \
+    lbin"!**/fd" @sharkdp/fd \
+    lbin"!**/bat" @sharkdp/bat \
+    lbin"!**/exa" @ogham/exa
+# zinit wait lucid from"gh-r" as"null" for \
+#     bpick"*appimage" lbin"!nvim* -> nvim" neovim/neovim \
+#     bpick"*AppImage" lbin"!tmux* -> tmux" nelsonenzo/tmux-appimage
 
 # Load plugins
 zinit wait lucid light-mode for \
