@@ -106,7 +106,10 @@ zinit wait lucid from"gh-r" as"null" for \
     lbin"!**/fd" @sharkdp/fd \
     lbin"!**/bat" @sharkdp/bat \
     lbin"!**/exa" @ogham/exa
+
+# Additional programs
 # zinit wait lucid from"gh-r" as"null" for \
+#     lbin"!csvtk" @shenwei356/csvtk \
 #     bpick"*appimage" lbin"!nvim* -> nvim" neovim/neovim \
 #     bpick"*AppImage" lbin"!tmux* -> tmux" nelsonenzo/tmux-appimage
 
