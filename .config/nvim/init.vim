@@ -6,7 +6,7 @@ Plug 'kyazdani42/nvim-web-devicons'
 " coding utilities
 Plug 'scrooloose/nerdcommenter'
 Plug 'Yggdroot/indentLine'
-Plug 'jiangmiao/auto-pairs'
+Plug 'LunarWatcher/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'hrsh7th/vim-eft'
 Plug 'qwertologe/nextval.vim'
@@ -22,7 +22,8 @@ Plug 'burneyy/vim-snakemake'
 Plug 'JuliaEditorSupport/julia-vim'
 call plug#end()
 
-" User define
+" {{{ vim configs
+
 colorscheme vim-monokai-tasty
 syntax on
 if has('termguicolors')
@@ -46,19 +47,35 @@ set incsearch
 set mouse=a
 set noshowmode
 set completeopt=menuone,noselect
+set nofoldenable
+set foldmarker={{{,}}}
+set foldmethod=marker
+set foldlevel=0
+set foldnestmax=3 
+
+" search selected text by '//' in visual mode, also try '*' and '#'
+vnoremap // y/\V<C-r>=escape(@",'/\')<CR><CR>
+
+" configs for *py
+au FileType python
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    " \ set textwidth=79 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix
+
+" }}}
+
+" {{{ plugin configs
 
 " nextval
 nmap <leader>a <Plug>nextvalInc
 nmap <leader>x <Plug>nextvalDec
 
-" search selected text by '//' in visual mode, also try '*' and '#'
-vnoremap // y/\V<C-r>=escape(@",'/\')<CR><CR>
-
-" auto-pairs
-" https://github.com/jiangmiao/auto-pairs/issues/211
-au FileType python let b:AutoPairs = AutoPairsDefine({"f'" : "'", "r'" : "'", "b'" : "'"})
-
 " nerdcommenter
+" https://github.com/preservim/nerdcommenter/issues/202
 let g:NERDSpaceDelims=1
 let g:NERDCustomDelimiters = {
     \ 'python': {'left': '#'},
@@ -86,15 +103,7 @@ nmap T <Plug>(eft-T)
 xmap T <Plug>(eft-T)
 omap T <Plug>(eft-T)
 
-" configs for *py
-au FileType python
-    \ set tabstop=4 |
-    \ set softtabstop=4 |
-    \ set shiftwidth=4 |
-    " \ set textwidth=79 |
-    \ set expandtab |
-    \ set autoindent |
-    \ set fileformat=unix
+" }}}
 
 " load init.lua
 :lua require('init')
