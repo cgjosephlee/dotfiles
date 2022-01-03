@@ -59,7 +59,8 @@ vim.api.nvim_set_keymap("i", "<C-f>", "compe#scroll({ 'delta': +4 })",
 vim.api.nvim_set_keymap("i", "<C-d>", "compe#scroll({ 'delta': -4 })",
                         { expr = true, silent = true, noremap = true })
 
------ lualine -----
+-- {{{ lualine
+
 local utils = require('lualine.utils.utils')
 local patched_onedark = require('lualine.themes.onedark')
 patched_onedark.insert = {a = {fg = '#282c34', bg = '#e5c07b', gui = 'bold'}}
@@ -121,26 +122,26 @@ end
 require('lualine').setup {
     options = {
         theme = patched_onedark,
-        section_separators = {'', ''},
+        section_separators = {left = '', right = ''},
         component_separators = ''
     },
     sections = {
         lualine_a = {
             {
                 mode_left_sep,
-                left_padding = 0, right_padding = 0,
+                padding = {left = 0, right = 0},
                 color = 'lualine_mode_left_sep'
             },
             {
                 'mode',
-                left_padding = 0, right_padding = 0,
+                padding = {left = 0, right = 0},
             }
         },
         lualine_b = {{
             'diagnostics',
             sources = {'nvim_lsp'},
             symbols = {error = ' ', warn = ' ', info = ' ', hint = ' '},
-            right_padding = 0
+            padding = {left = 1, right = 0},
         }},
         lualine_c = {{
             colored_filename,
@@ -148,16 +149,16 @@ require('lualine').setup {
         }},
         lualine_x = {
             {'filetype'},
-            {'encoding', left_padding = 0},
-            {'fileformat', left_padding = 0, icons_enabled = false}
+            {'encoding', padding = {left = 0, right = 1}},
+            {'fileformat', padding = {left = 0, right = 1}, icons_enabled = false}
         },
         lualine_y = {
-            {'progress'},
-            {'location', left_padding = 0, right_padding = 0},
+            {'progress', padding = {left = 0, right = 1}},
+            {'location', padding = {left = 0, right = 0}},
             {
                 function() return '' end,
-                left_padding = 0, right_padding = 0,
-                color = 'lualine_c_normal_to_lualine_b_normal'
+                padding = {left = 0, right = 0},
+                color = 'lualine_transitional_lualine_b_normal_to_lualine_c_normal'
             }
         },
         lualine_z = {}
@@ -169,5 +170,7 @@ require('lualine').setup {
         lualine_x = {'location'},
         lualine_y = {},
         lualine_z = {}
-  }
+    }
 }
+
+-- }}}
