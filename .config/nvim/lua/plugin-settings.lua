@@ -1,63 +1,94 @@
------ compe -----
-require('compe').setup {
-    enabled = true,
-    autocomplete = true,
-    source = {
-        path = true,
-        buffer = true,
-        calc = true,
-        spell = true,
-        tags = true,
-        nvim_lsp = true,
-        nvim_lua = true,
-        treesitter = true,
+-- {{{ cmp
+-- https://github.com/hrsh7th/nvim-cmp#setup
+-- https://github.com/hrsh7th/nvim-cmp/wiki/Example-mappings#vim-vsnip
+
+local cmp = require('cmp')
+local lspkind = require('lspkind')
+
+-- for tab mapping
+local has_words_before = function()
+    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
+end
+
+local feedkey = function(key, mode)
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
+end
+
+cmp.setup({
+    snippet = {
+        expand = function(args)
+            vim.fn['vsnip#anonymous'](args.body)
+        end,
+    },
+    mapping = {
+        ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
+        ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+        ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+        ['<C-y>'] = cmp.config.disable,
+        ['<C-e>'] = cmp.mapping({
+            i = cmp.mapping.abort(),
+            c = cmp.mapping.close(),
+        }),
+        ['<CR>'] = cmp.mapping.confirm({ select = true }),
+        ['<Tab>'] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.select_next_item()
+            elseif vim.fn['vsnip#available'](1) == 1 then
+                feedkey('<Plug>(vsnip-expand-or-jump)', '')
+            elseif has_words_before() then
+                cmp.complete()
+            else
+                fallback()
+            end
+        end, { 'i', 's' }),
+        ['<S-Tab>'] = cmp.mapping(function()
+            if cmp.visible() then
+                cmp.select_prev_item()
+            elseif vim.fn['vsnip#jumpable'](-1) == 1 then
+                feedkey('<Plug>(vsnip-jump-prev)', '')
+            end
+        end, { 'i', 's' })
+    },
+    sources = cmp.config.sources({  -- set gropu_index
+        { name = 'nvim_lsp' },
+        { name = 'vsnip' },
+    }, {
+        { name = 'path' },
+        { name = 'buffer' },
+    }),
+    formatting = {
+        format = lspkind.cmp_format({
+            with_text = true,
+            maxwidth = 50,
+            menu = ({
+                nvim_lsp = '[LSP]',
+                vsnip    = '[VSNIP]',
+                buffer   = '[Buffer]',
+                path     = '[PATH]',
+                cmdline  = '[CMD]'
+            })
+        }),
+    },
+})
+
+-- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline('/', {
+    sources = {
+        { name = 'buffer' }
     }
-}
+})
 
--- use tab to navigate completion menu
-local t = function(str) return vim.api.nvim_replace_termcodes(str, true, true, true) end
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline(':', {
+    sources = cmp.config.sources({
+        { name = 'path' }
+    }, {
+        { name = 'cmdline' }
+    })
+})
 
-local check_back_space = function()
-    local col = vim.fn.col(".") - 1
-    if col == 0 or vim.fn.getline("."):sub(col, col):match("%s") then
-        return true
-    else
-        return false
-    end
-end
-
-_G.tab_complete = function()
-    if vim.fn.pumvisible() == 1 then
-        return t "<C-n>"
-    elseif check_back_space() then
-        return t "<Tab>"
-    else
-        return vim.fn["compe#complete"]()
-    end
-end
-_G.s_tab_complete = function()
-    if vim.fn.pumvisible() == 1 then
-        return t "<C-p>"
-    else
-        return t "<S-Tab>"
-    end
-end
-
-vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", { expr = true })
-vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", { expr = true })
-vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", { expr = true })
-vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", { expr = true })
-
-vim.api.nvim_set_keymap("i", "<C-Space>", "compe#complete()",
-                        { expr = true, silent = true, noremap = true })
-vim.api.nvim_set_keymap("i", "<CR>", "compe#confirm('<CR>')",
-                        { expr = true, silent = true, noremap = true })
-vim.api.nvim_set_keymap("i", "<C-e>", "compe#close('<C-e>')",
-                        { expr = true, silent = true, noremap = true })
-vim.api.nvim_set_keymap("i", "<C-f>", "compe#scroll({ 'delta': +4 })",
-                        { expr = true, silent = true, noremap = true })
-vim.api.nvim_set_keymap("i", "<C-d>", "compe#scroll({ 'delta': -4 })",
-                        { expr = true, silent = true, noremap = true })
+-- }}}
 
 -- {{{ lualine
 

@@ -10,11 +10,20 @@ Plug 'LunarWatcher/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'hrsh7th/vim-eft'
 Plug 'qwertologe/nextval.vim'
+" snippets
+Plug 'hrsh7th/vim-vsnip'
+Plug 'rafamadriz/friendly-snippets'
 " LSP
-Plug 'neovim/nvim-lspconfig'
-Plug 'kabouzeid/nvim-lspinstall'
-Plug 'hrsh7th/nvim-compe'
-Plug 'glepnir/lspsaga.nvim'
+Plug 'neovim/nvim-lspconfig', {'commit': '4f723771'}
+Plug 'williamboman/nvim-lsp-installer', {'commit': '5d4195df'}
+" completion
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'onsails/lspkind-nvim'
 " python
 Plug 'Vimjas/vim-python-pep8-indent'
 " other lang
@@ -46,7 +55,7 @@ set hlsearch
 set incsearch
 set mouse=a
 set noshowmode
-set completeopt=menuone,noselect
+set completeopt=menu,menuone,noselect
 set nofoldenable
 set foldmarker={{{,}}}
 set foldmethod=marker
@@ -102,6 +111,12 @@ omap t <Plug>(eft-t)
 nmap T <Plug>(eft-T)
 xmap T <Plug>(eft-T)
 omap T <Plug>(eft-T)
+
+" vsnip
+imap <expr> <C-j> vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)': '<C-j>'
+smap <expr> <C-j> vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)': '<C-j>'
+imap <expr> <C-k> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)': '<C-k>'
+smap <expr> <C-k> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)': '<C-k>'
 
 " }}}
 
