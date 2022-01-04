@@ -170,7 +170,7 @@ require('lualine').setup {
         },
         lualine_b = {{
             'diagnostics',
-            sources = {'nvim_lsp'},
+            sources = {'nvim_diagnostic'},
             symbols = {error = ' ', warn = ' ', info = ' ', hint = ' '},
             padding = {left = 1, right = 0},
         }},

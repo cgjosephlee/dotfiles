@@ -1,7 +1,7 @@
 call plug#begin(stdpath('data') . '/plugged')
 " theme
 Plug 'patstockwell/vim-monokai-tasty'
-Plug 'hoob3rt/lualine.nvim'
+Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 " coding utilities
 Plug 'scrooloose/nerdcommenter'
