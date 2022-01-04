@@ -14,8 +14,8 @@ Plug 'qwertologe/nextval.vim'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'rafamadriz/friendly-snippets'
 " LSP
-Plug 'neovim/nvim-lspconfig', {'commit': '4f723771'}
-Plug 'williamboman/nvim-lsp-installer', {'commit': '5d4195df'}
+Plug 'neovim/nvim-lspconfig'
+Plug 'williamboman/nvim-lsp-installer'
 " completion
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'

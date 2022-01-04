@@ -110,7 +110,7 @@ zinit wait lucid from"gh-r" as"null" for \
 # Additional programs
 # zinit wait lucid from"gh-r" as"null" for \
 #     lbin"!csvtk" @shenwei356/csvtk \
-#     bpick"*appimage" lbin"!nvim* -> nvim" neovim/neovim \
+#     ver"stable" bpick"*appimage" lbin"!nvim* -> nvim" neovim/neovim \
 #     bpick"*AppImage" lbin"!tmux* -> tmux" nelsonenzo/tmux-appimage
 
 # Load plugins
