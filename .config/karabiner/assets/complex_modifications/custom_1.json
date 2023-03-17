@@ -31,7 +31,7 @@
       ]
     },
     {
-      "description": "Post Escape if Shirt_R is pressed alone",
+      "description": "Post Escape if Shift_R is pressed alone",
       "manipulators": [
         {
           "type": "basic",
