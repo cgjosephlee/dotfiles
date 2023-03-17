@@ -4,11 +4,13 @@ Plug 'patstockwell/vim-monokai-tasty'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 " coding utilities
-Plug 'scrooloose/nerdcommenter'
 Plug 'Yggdroot/indentLine'
-Plug 'LunarWatcher/auto-pairs'
+Plug 'windwp/nvim-autopairs'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
-Plug 'hrsh7th/vim-eft'
+Plug 'ggandor/leap.nvim'
+Plug 'ggandor/flit.nvim'
 Plug 'qwertologe/nextval.vim'
 " snippets
 Plug 'hrsh7th/vim-vsnip'
@@ -26,9 +28,6 @@ Plug 'hrsh7th/cmp-vsnip'
 Plug 'onsails/lspkind-nvim'
 " python
 Plug 'Vimjas/vim-python-pep8-indent'
-" other lang
-Plug 'burneyy/vim-snakemake'
-Plug 'JuliaEditorSupport/julia-vim'
 call plug#end()
 
 " {{{ vim configs
@@ -83,34 +82,9 @@ au FileType python
 nmap <leader>a <Plug>nextvalInc
 nmap <leader>x <Plug>nextvalDec
 
-" nerdcommenter
-" https://github.com/preservim/nerdcommenter/issues/202
-let g:NERDSpaceDelims=1
-let g:NERDCustomDelimiters = {
-    \ 'python': {'left': '#'},
-    \ 'julia': {'left': '#'}
-    \ }
-let NERDDefaultAlign="left"
-
 " indentLine
 let g:indentLine_enabled=1
 let g:indentLine_color_term=0
-
-" vim-eft
-nmap ; <Plug>(eft-repeat)
-xmap ; <Plug>(eft-repeat)
-nmap f <Plug>(eft-f)
-xmap f <Plug>(eft-f)
-omap f <Plug>(eft-f)
-nmap F <Plug>(eft-F)
-xmap F <Plug>(eft-F)
-omap F <Plug>(eft-F)
-nmap t <Plug>(eft-t)
-xmap t <Plug>(eft-t)
-omap t <Plug>(eft-t)
-nmap T <Plug>(eft-T)
-xmap T <Plug>(eft-T)
-omap T <Plug>(eft-T)
 
 " vsnip
 imap <expr> <C-j> vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)': '<C-j>'
@@ -120,5 +94,4 @@ smap <expr> <C-k> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)': '<C-k>'
 
 " }}}
 
-" load init.lua
-:lua require('init')
+lua require('init')

@@ -150,7 +150,7 @@ local colored_filename = function()
     return data
 end
 
-require('lualine').setup {
+require('lualine').setup({
     options = {
         theme = patched_onedark,
         section_separators = {left = '', right = ''},
@@ -202,6 +202,18 @@ require('lualine').setup {
         lualine_y = {},
         lualine_z = {}
     }
-}
+})
 
 -- }}}
+
+-- {{{ leap
+
+require('leap').add_default_mappings()
+
+require('flit').setup({
+    multiline = false
+})
+
+-- }}}
+
+require("nvim-autopairs").setup()
