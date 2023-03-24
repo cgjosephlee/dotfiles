@@ -2,56 +2,6 @@
   "title": "Custom 3: Tmux",
   "rules": [
     {
-      "description": "Change caps_lock to control",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "caps_lock",
-            "modifiers": {
-              "optional": [
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "left_control"
-            }
-          ],
-          "to_if_alone": [
-            {
-              "key_code": "caps_lock"
-            }
-          ],
-          "to_if_held_down": [
-            {
-              "key_code": "caps_lock",
-              "hold_down_milliseconds": 100
-            }
-          ],
-          "parameters": {
-            "basic.to_if_alone_timeout_milliseconds": 250,
-            "basic.to_if_held_down_threshold_milliseconds": 250
-          },
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^com\\.apple\\.Terminal$",
-                "^com\\.googlecode\\.iterm2$",
-                "^co\\.zeit\\.hyperterm$",
-                "^co\\.zeit\\.hyper$",
-                "^io\\.alacritty$",
-                "^net\\.kovidgoyal\\.kitty$",
-                "^com\\.microsoft\\.VSCode"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
       "description": "Tmux Prefix Mode [Tab as trigger key]",
       "manipulators": [
         {
