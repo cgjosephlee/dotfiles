@@ -2,8 +2,9 @@ call plug#begin(stdpath('data') . '/plugged')
 " theme
 Plug 'patstockwell/vim-monokai-tasty'
 Plug 'nvim-lualine/lualine.nvim'
-Plug 'kyazdani42/nvim-web-devicons'
+Plug 'nvim-tree/nvim-web-devicons'
 " coding utilities
+Plug 'nvim-tree/nvim-tree.lua'
 Plug 'Yggdroot/indentLine'
 Plug 'windwp/nvim-autopairs'
 Plug 'tpope/vim-repeat'
@@ -11,7 +12,6 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'ggandor/leap.nvim'
 Plug 'ggandor/flit.nvim'
-Plug 'qwertologe/nextval.vim'
 " snippets
 Plug 'hrsh7th/vim-vsnip'
 Plug 'rafamadriz/friendly-snippets'
@@ -60,7 +60,7 @@ set nofoldenable
 set foldmarker={{{,}}}
 set foldmethod=marker
 set foldlevel=0
-set foldnestmax=3 
+set foldnestmax=3
 
 " search selected text by '//' in visual mode, also try '*' and '#'
 vnoremap // y/\V<C-r>=escape(@",'/\')<CR><CR>
@@ -78,10 +78,6 @@ au FileType python
 " }}}
 
 " {{{ plugin configs
-
-" nextval
-nmap <leader>a <Plug>nextvalInc
-nmap <leader>x <Plug>nextvalDec
 
 " indentLine
 let g:indentLine_enabled=1

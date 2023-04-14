@@ -206,7 +206,7 @@ require('lualine').setup({
 
 -- }}}
 
--- {{{ leap
+-- {{{ misc.
 
 require('leap').add_default_mappings()
 
@@ -214,6 +214,8 @@ require('flit').setup({
     multiline = false
 })
 
--- }}}
-
 require("nvim-autopairs").setup()
+
+require("nvim-tree").setup()
+
+-- }}}
