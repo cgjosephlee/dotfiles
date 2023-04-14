@@ -37,26 +37,22 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 
 -- }}}
 
--- {{{ nvim-lsp-installer
--- https://github.com/williamboman/nvim-lsp-installer#setup
+-- {{{ mason
 
-local lsp_installer = require("nvim-lsp-installer")
+require("mason").setup()
+require("mason-lspconfig").setup()
 
-lsp_installer.on_server_ready(function(server)
-    local opts = {
-        on_attach = on_attach,
-        capabilities = capabilities,
-        flags = {
-            debounce_text_changes = 150,  -- increase to 500 if laggy
+require("mason-lspconfig").setup_handlers {
+    function (server_name)
+        require("lspconfig")[server_name].setup {
+            on_attach = on_attach,
+            capabilities = capabilities,
+            flags = {
+                debounce_text_changes = 150,  -- increase to 500 if laggy
+            }
         }
-    }
-
-    -- if server.name == 'pyright' then
-    --     opts.root_dir = function() ... end
-    -- end
-
-    server:setup(opts)
-end)
+    end
+}
 
 -- }}}
 
