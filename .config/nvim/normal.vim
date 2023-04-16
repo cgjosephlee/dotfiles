@@ -37,7 +37,7 @@ colorscheme vim-monokai-tasty
 syntax on
 if has('termguicolors')
     set termguicolors
-elseif
+else
     set t_Co=256
 endif
 set encoding=utf-8
