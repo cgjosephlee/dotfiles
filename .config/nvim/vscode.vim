@@ -20,8 +20,6 @@ xnoremap ga <Cmd>call VSCodeNotify('editor.action.quickFix')<CR>
 nnoremap <leader>f <Cmd>call VSCodeNotify('editor.action.formatDocument')<CR>
 nnoremap <leader>o <Cmd>call VSCodeNotify('editor.action.organizeImports')<CR>
 
-lua require('vscode-settings')
-
 " https://github.com/vscode-neovim/vscode-neovim/pull/845
 function! s:gotoEditor(...) abort
     let count = a:1
@@ -29,3 +27,5 @@ function! s:gotoEditor(...) abort
 endfunction
 nnoremap gt <Cmd>call <SID>gotoEditor(v:count, 'next')<CR>
 xnoremap gt <Cmd>call <SID>gotoEditor(v:count, 'next')<CR>
+
+lua require('vscode-settings')

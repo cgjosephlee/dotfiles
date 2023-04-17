@@ -4,6 +4,7 @@ Plug 'patstockwell/vim-monokai-tasty'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-tree/nvim-web-devicons'
 " coding utilities
+Plug 'akinsho/bufferline.nvim', { 'tag': 'v3.*' }
 Plug 'nvim-tree/nvim-tree.lua'
 Plug 'Yggdroot/indentLine'
 Plug 'windwp/nvim-autopairs'
@@ -78,6 +79,10 @@ au FileType python
 " }}}
 
 " {{{ plugin configs
+
+" disable netrw for nvim-tree
+let g:loaded_netrw=1
+let g:loaded_netrwPlugin=1
 
 " indentLine
 let g:indentLine_enabled=1

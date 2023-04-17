@@ -218,4 +218,6 @@ require("nvim-autopairs").setup()
 
 require("nvim-tree").setup()
 
+require("bufferline").setup{}
+
 -- }}}
