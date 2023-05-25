@@ -80,9 +80,15 @@ au FileType python
 
 " {{{ plugin configs
 
-" disable netrw for nvim-tree
+" nvim-tree
 let g:loaded_netrw=1
 let g:loaded_netrwPlugin=1
+nnoremap <leader>e <Cmd>NvimTreeToggle<CR>
+
+"bufferline
+nnoremap <leader>bn <Cmd>BufferLineCycleNext<CR>
+nnoremap <leader>bb <Cmd>BufferLineCyclePrev<CR>
+nnoremap <leader>bj <Cmd>BufferLinePick<CR>
 
 " indentLine
 let g:indentLine_enabled=1
