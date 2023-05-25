@@ -19,7 +19,7 @@ autoload -Uz _zinit
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
 zinit light-mode for \
-    NICHOLAS85/z-a-linkbin
+    zdharma-continuum/zinit-annex-binary-symlink
 
 ### End of Zinit's installer chunk
 
@@ -105,7 +105,8 @@ zinit wait lucid from"gh-r" as"null" for \
     lbin"!fzf" @junegunn/fzf \
     lbin"!**/fd" @sharkdp/fd \
     lbin"!**/bat" @sharkdp/bat \
-    lbin"!**/exa" @ogham/exa
+    lbin"!**/exa" @ogham/exa \
+    lbin"!**/rg" @BurntSushi/ripgrep
 
 # Additional programs
 # zinit wait lucid from"gh-r" as"null" for \
@@ -132,6 +133,9 @@ zinit wait lucid light-mode blockf for \
     zsh-users/zsh-completions \
     esc/conda-zsh-completion \
     kloetzl/biozsh
+
+# This one is to be ran just once, in interactive session.
+# zinit creinstall /opt/homebrew/share/zsh/site-functions
 
 # Load dircolors
 # https://zdharma-continuum.github.io/zinit/wiki/LS_COLORS-explanation/
