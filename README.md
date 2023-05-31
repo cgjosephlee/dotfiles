@@ -1,9 +1,6 @@
-# Config files <!-- omit in toc -->
-Some of my config files (vim, tmux, etc.). Config file should be renamed as `.filename` and put in home directory.
-
-## TOC <!-- omit in toc -->
+# dotfiles <!-- omit in toc -->
 <!-- created by vscode Markdown All in One -->
-- [Manage with yadm](#manage-with-yadm)
+- [yadm](#yadm)
   - [Installation](#installation)
   - [Usage](#usage)
 - [iTerm2](#iterm2)
@@ -27,63 +24,66 @@ Some of my config files (vim, tmux, etc.). Config file should be renamed as `.fi
     - [powerlevel10k](#powerlevel10k)
     - [Fast-syntax-highlighting](#fast-syntax-highlighting)
     - [biozsh](#biozsh)
-- [NeoVim](#neovim)
+- [Neovim](#neovim)
   - [Installation](#installation-1)
-  - [vim-plug](#vim-plug)
-  - [Nerd commenter](#nerd-commenter)
+  - [LazyVim](#lazyvim)
   - [LSP](#lsp)
     - [Install nodejs](#install-nodejs)
     - [Install language server](#install-language-server)
-  - [Other plugins](#other-plugins-1)
+  - [Vscode intergration](#vscode-intergration)
+  - [References](#references)
+    - [Cheatsheet](#cheatsheet)
+    - [Setups](#setups)
+- [Vim](#vim)
+  - [vim-plug](#vim-plug)
 - [Tmux](#tmux)
   - [Installation](#installation-2)
     - [Source](#source)
     - [Appimage](#appimage)
   - [Tmux Plugin Manager (tpm)](#tmux-plugin-manager-tpm)
-  - [Other plugins](#other-plugins-2)
+  - [Other plugins](#other-plugins-1)
 - [Misc](#misc)
-  - [Manage dotfiles](#manage-dotfiles)
-  - [Nvim config references](#nvim-config-references)
+  - [dotfiles managers](#dotfiles-managers)
 
 
-## Manage with yadm
-### Installation
+# [yadm](https://yadm.io)
+## Installation
 Linux
-```
+```sh
 curl -fLo yadm https://github.com/TheLocehiliosan/yadm/raw/master/yadm && chmod a+x yadm
 ```
 MacOS
-```
+```sh
 brew install yadm
 ```
 
-### Usage
+## Usage
 yadm inherits all of Git’s features.
 ```sh
-yadm clone https://github.com/cgjosephlee/Config_files
+yadm clone https://github.com/cgjosephlee/dotfiles
 ```
 
-## iTerm2
-### Color preset
+# iTerm2
+## Color preset
 Nord, background = '#212327'.
 
-### Font
+## Font
 13pt MesloLGS Nerd Font (patched Menlo, LGS: line gap small)
-```
+```sh
 brew tap homebrew/cask-fonts
 brew install font-meslo-lg-nerd-font
 ```
 
-### Other emulators
+## Other emulators
 - [kitty](https://sw.kovidgoyal.net/kitty/)
 - [alacritty](https://github.com/jwilm/alacritty)
 - [hyper](https://hyper.is)
 
-## Sublime Text 3
-### [Package control](https://packagecontrol.io)
+# Sublime Text 3
+## [Package control](https://packagecontrol.io)
 [Installation guide](https://packagecontrol.io/installation)
 
-### Theme
+## Theme
 [Boxy](https://packagecontrol.io/packages/Boxy%20Theme): Monokai
 ```json
 {
@@ -94,17 +94,17 @@ brew install font-meslo-lg-nerd-font
 }
 ```
 
-### Color scheme
+## Color scheme
 Default Monokai
 
-### Other plugins
+## Other plugins
 - AlignTab
 - Markdown Preview
 - MarkdownTOC ([usage](https://github.com/naokazuterada/MarkdownTOC#usage))
-- Side​Bar​Enhancements
+- SideBarEnhancements
 
-## Bash
-### [Bash-it](https://github.com/Bash-it/bash-it)
+# Bash
+## [Bash-it](https://github.com/Bash-it/bash-it)
 Installation
 ```sh
 git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
@@ -116,14 +116,14 @@ cd $BASH_IT && ./uninstall.sh
 cd $HOME && rm -rf $BASH_IT
 ```
 
-### [Oh my bash](https://github.com/ohmybash/oh-my-bash)
+## [Oh my bash](https://github.com/ohmybash/oh-my-bash)
 A delightful community-driven framework.
 
-### Theme
+## Theme
 - [Median](https://gist.github.com/cgjosephlee/69bfd32a39dad7c5a6fab10c0551806f)
 
-### PS1 config
-```bash
+## PS1 config
+```sh
 export PS1='\[\e[1;33m\]$PWD/ \[\e[0m\]\n\u@\h@\t $ '
 ```
 behaves like
@@ -132,8 +132,8 @@ behaves like
 User@Host@Time $
 ```
 
-## Zsh
-### Setup zsh
+# Zsh
+## Setup zsh
 ```sh
 chsh -s /bin/zsh
 ```
@@ -149,12 +149,14 @@ make && make install
 exec zsh
 ```
 
-### [zinit](https://github.com/zdharma/zinit)
+## [zinit](https://github.com/zdharma-continuum/zinit)
+First install
 ```sh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
+sh -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
 ```
-### Plugins
-#### [powerlevel10k](https://github.com/romkatv/powerlevel10k)
+
+## Plugins
+### [powerlevel10k](https://github.com/romkatv/powerlevel10k)
 A fast drop-in replacement for Powerlevel9k.
 For color customization, all supported colors are ([ref](https://github.com/bhilburn/powerlevel9k/wiki/Stylizing-Your-Prompt#segment-color-customization)):
 ```sh
@@ -177,60 +179,32 @@ awk 'BEGIN{
 }'
 ```
 
-#### [Fast-syntax-highlighting](https://github.com/zdharma/fast-syntax-highlighting)
+### [Fast-syntax-highlighting](https://github.com/zdharma/fast-syntax-highlighting)
 An alternative of [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting).
 ```sh
 fast-theme safari
 ```
 
-#### [biozsh](https://github.com/kloetzl/biozsh)
+### [biozsh](https://github.com/kloetzl/biozsh)
 Zsh autocompletes for plenty bioinfomatic tools.
 
-## [NeoVim](https://neovim.io)
-### Installation
+# [Neovim](https://neovim.io)
+## Installation
 Just download and enjoy!
 ```sh
 # for linux
 curl -fLo nvim https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
 chmod +x nvim
 ```
-Python support:
-```sh
-pip install --user --upgrade neovim
-```
-### [vim-plug](https://github.com/junegunn/vim-plug)
-Install
-```sh
-# for nvim
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-```
-Install plugins
-```
-:PlugInstall
-```
 
-### [Nerd commenter](https://github.com/scrooloose/nerdcommenter)
-`<leader>` is mapped to `\`.
+## [LazyVim](https://www.lazyvim.org)
+A Neovim setup powered by [lazy.nvim](https://github.com/folke/lazy.nvim). All plugins should be installed automatically on first startup.
 
-Add a space after comment sign:
-```vim
-let g:NERDSpaceDelims=1
-```
-Space may be duplicated in some language (e.g. python), to workaround:
-```vim
-let g:NERDCustomDelimiters = {'python': {'left': '#'}}
-```
-
-### LSP
-https://github.com/neovim/nvim-lspconfig
-https://github.com/kabouzeid/nvim-lspinstall
-https://github.com/hrsh7th/nvim-compe
-
-#### Install nodejs
+## LSP
+### Install nodejs
 https://nodejs.org/en/download/
 ```sh
-VERSION=v14.17.3
+VERSION=v18.15.0
 DISTRO=linux-x64
 PREFIX=$HOME/local
 wget https://nodejs.org/dist/$VERSION/node-$VERSION-$DISTRO.tar.xz
@@ -238,19 +212,43 @@ tar -xJf node-$VERSION-$DISTRO.tar.xz -C $PREFIX
 ln -s $PREFIX/node-$VERSION-$DISTRO/bin/* $PREFIX/bin
 ```
 
-#### Install language server
+### Install language server
 ```
-:LspInstall <language>
+:Mason
 ```
 
-### Other plugins
-- [vim-easy-align](https://github.com/junegunn/vim-easy-align)
-- [vim-multiple-cursors](https://github.com/terryma/vim-multiple-cursors)
-- [nerdtree](https://github.com/preservim/nerdtree)
+## Vscode intergration
+- https://github.com/vscode-neovim/vscode-neovim
+- https://github.com/cgjosephlee/dotfiles/blob/master/.config/nvim/lua/plugins/vscode.lua
 
-## Tmux
-### Installation
-#### Source
+## References
+### Cheatsheet
+- https://vim.rtorr.com/lang/zh_tw/
+
+### Setups
+- https://github.com/SpaceVim/SpaceVim
+- https://github.com/NvChad/NvChad
+- https://github.com/LunarVim/LunarVim
+- https://github.com/LazyVim/LazyVim
+- https://github.com/ayamir/nvimdots
+
+# Vim
+Preserved in case nvim is not available.
+
+## [vim-plug](https://github.com/junegunn/vim-plug)
+Install
+```sh
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
+then
+```
+:PlugInstall
+```
+
+# Tmux
+## Installation
+### Source
 https://github.com/tmux/tmux
 1. Install [libevent](https://github.com/libevent/libevent)
 2. Install tmux
@@ -259,14 +257,14 @@ https://github.com/tmux/tmux
 make && make install
 ```
 
-#### Appimage
+### Appimage
 https://github.com/nelsonenzo/tmux-appimage/releases
 ```
 curl -fLo tmux https://github.com/nelsonenzo/tmux-appimage/releases/download/tmux3.1b/tmux-3.1b-x86_64.AppImage
 chmod +x tmux
 ```
 
-### [Tmux Plugin Manager (tpm)](https://github.com/tmux-plugins/tpm)
+## [Tmux Plugin Manager (tpm)](https://github.com/tmux-plugins/tpm)
 Install
 ```sh
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -289,17 +287,9 @@ or via command line ([ref](https://github.com/tmux-plugins/tpm/blob/master/docs/
 ~/.tmux/plugins/tpm/bin/clean_plugins
 ```
 
-### Other plugins
+## Other plugins
 - [tmux-prefix-highlight](https://github.com/tmux-plugins/tmux-prefix-highlight)
 
-## Misc
-### Manage dotfiles
-- [Using GNU Stow to manage dotfiles](https://farseerfc.me/using-gnu-stow-to-manage-your-dotfiles.html)
-- https://github.com/TheLocehiliosan/yadm
-- https://github.com/thoughtbot/rcm
-- https://github.com/andsens/homeshick
-
-### Nvim config references
-- https://github.com/ayamir/nvimdots
-  https://zhuanlan.zhihu.com/p/382092667
-- https://github.com/kabouzeid/dotfiles/tree/master/nvim
+# Misc
+## dotfiles managers
+- https://dotfiles.github.io/utilities/
