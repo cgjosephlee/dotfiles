@@ -16,7 +16,9 @@ local enabled = {
   "nvim-treesitter",
   "nvim-treesitter-textobjects",
   -- "nvim-ts-context-commentstring",
+  "nvim-ts-rainbow2", -- not used but required for loading treesitter
   "vim-repeat",
+  "boole.nvim",
   "LazyVim",
 }
 
@@ -49,10 +51,10 @@ vim.api.nvim_create_autocmd("User", {
   callback = function()
     vim.keymap.set("n", "H", "<cmd>call VSCodeNotify('workbench.action.previousEditor')<cr>")
     vim.keymap.set("n", "L", "<cmd>call VSCodeNotify('workbench.action.nextEditor')<cr>")
-    vim.keymap.set({"n", "x", "o"}, "gc", "<plug>VSCodeCommentary")
+    vim.keymap.set({ "n", "x", "o" }, "gc", "<plug>VSCodeCommentary")
     vim.keymap.set("n", "gcc", "<plug>VSCodeCommentaryLine")
-    vim.keymap.set({"n", "x"}, "<leader>ca", "<cmd>call VSCodeNotify('editor.action.quickFix')<cr>")
-    vim.keymap.set({"n", "x"}, "<leader>cr", "<cmd>call VSCodeNotify('editor.action.rename')<cr>")
+    vim.keymap.set({ "n", "x" }, "<leader>ca", "<cmd>call VSCodeNotify('editor.action.quickFix')<cr>")
+    vim.keymap.set({ "n", "x" }, "<leader>cr", "<cmd>call VSCodeNotify('editor.action.rename')<cr>")
     vim.keymap.set("n", "<leader>cf", "<cmd>call VSCodeNotify('editor.action.formatDocument')<cr>")
     vim.keymap.set("n", "<leader>co", "<cmd>call VSCodeNotify('editor.action.organizeImports')<cr>")
     vim.keymap.set("n", "<leader><space>", "<cmd>Find<cr>")
@@ -73,6 +75,6 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = { highlight = { enable = false } },
+    opts = { highlight = { enable = false }, rainbow = { enable = false } },
   },
 }
