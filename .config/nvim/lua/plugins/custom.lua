@@ -17,7 +17,8 @@ return {
     end,
   },
   {
-    "nat-418/boole.nvim",
+    "cgjosephlee/boole.nvim",
+    branch = "issue-27",
     keys = {
       { "<C-a>", "<cmd>Boole increment<cr>" },
       { "<C-x>", "<cmd>Boole decrement<cr>" },
