@@ -2,9 +2,12 @@
 
 return {
   {
+    "loctvl842/monokai-pro.nvim"
+  },
+  {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin-macchiato",
+      colorscheme = "monokai-pro",
     },
   },
   {
