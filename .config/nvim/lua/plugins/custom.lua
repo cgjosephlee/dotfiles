@@ -17,6 +17,17 @@ return {
     end,
   },
   {
+    "Wansmer/treesj",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    keys = {
+      { "<leader>cJ", "<cmd>TSJToggle<cr>", desc = "Toggle SplitJoin" },
+    },
+    opts = {
+      use_default_keymaps = false,
+      max_join_length = 500,
+    },
+  },
+  {
     "cgjosephlee/boole.nvim",
     branch = "issue-27",
     keys = {
