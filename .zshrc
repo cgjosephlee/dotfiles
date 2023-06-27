@@ -106,7 +106,8 @@ zinit wait lucid from"gh-r" as"null" for \
     lbin"!**/fd" @sharkdp/fd \
     lbin"!**/bat" @sharkdp/bat \
     lbin"!**/exa" @ogham/exa \
-    lbin"!**/rg" @BurntSushi/ripgrep
+    lbin"!**/rg" @BurntSushi/ripgrep \
+    lbin"!lazygit" @jesseduffield/lazygit
 
 # Additional programs
 # zinit wait lucid from"gh-r" as"null" for \
@@ -212,3 +213,4 @@ alias ta='tmux a'
 (( $+commands[nvim] )) && alias vi='nvim'
 alias rp='realpath'
 alias rps='realpath -s'
+alias lg='lazygit'
