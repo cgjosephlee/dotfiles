@@ -28,38 +28,37 @@ return {
     },
   },
   {
-    "cgjosephlee/boole.nvim",
-    branch = "issue-27",
+    "monaqa/dial.nvim",
+    -- stylua: ignore
     keys = {
-      { "<C-a>", "<cmd>Boole increment<cr>" },
-      { "<C-x>", "<cmd>Boole decrement<cr>" },
+      { "<C-a>", function() return require("dial.map").inc_normal() end, expr = true, desc = "Increment" },
+      { "<C-x>", function() return require("dial.map").dec_normal() end, expr = true, desc = "Decrement" },
+      { "<leader>A", function() return require("dial.map").inc_normal() end, expr = true, desc = "Increment" },
+      { "<leader>X", function() return require("dial.map").dec_normal() end, expr = true, desc = "Decrement" },
+      { "g<C-a>", function() return require("dial.map").inc_gnormal() end, expr = true, desc = "Increment" },
+      { "g<C-x>", function() return require("dial.map").dec_gnormal() end, expr = true, desc = "Decrement" },
+      { "<C-a>", function() return require("dial.map").inc_visual() end, expr = true, desc = "Increment", mode = "v" },
+      { "<C-x>", function() return require("dial.map").dec_visual() end, expr = true, desc = "Decrement", mode = "v" },
+      { "g<C-a>", function() return require("dial.map").inc_gvisual() end, expr = true, desc = "Increment", mode = "v" },
+      { "g<C-x>", function() return require("dial.map").dec_gvisual() end, expr = true, desc = "Decrement", mode = "v" },
     },
-    opts = {
-      mappings = {},
-      allow_caps_additions = {
-        {
-          "i",
-          "ii",
-          "iii",
-          "iv",
-          "v",
-          "vi",
-          "vii",
-          "viii",
-          "ix",
-          "x",
-          "xi",
-          "xii",
-          "xiii",
-          "xiv",
-          "xv",
-          "xvi",
-          "xvii",
-          "xviii",
-          "xix",
-          "xx",
-        },
-      },
-    },
+    config = function()
+      local augend = require("dial.augend")
+      -- custom enums
+      local bool_true_L = augend.constant.new({ elements = { "true", "false" }, preserve_case = true })
+      local bool_true_U = augend.constant.new({ elements = { "TRUE", "FALSE" }, preserve_case = true })
+      local bool_true_C = augend.constant.new({ elements = { "True", "False" }, preserve_case = true })
+      local reg = {
+        augend.integer.alias.decimal,
+        augend.semver.alias.semver,
+        bool_true_L,
+        bool_true_U,
+        bool_true_C,
+      }
+      require("dial.config").augends:register_group({
+        default = reg,
+        visual = reg,
+      })
+    end,
   },
 }

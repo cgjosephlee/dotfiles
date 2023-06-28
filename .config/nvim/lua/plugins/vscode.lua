@@ -18,7 +18,7 @@ local enabled = {
   -- "nvim-ts-context-commentstring",
   "nvim-ts-rainbow2", -- not used but required for loading treesitter
   "vim-repeat",
-  "boole.nvim",
+  "dial.nvim",
   "LazyVim",
 }
 
