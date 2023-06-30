@@ -48,12 +48,14 @@ return {
       local bool_true_L = augend.constant.new({ elements = { "true", "false" }, preserve_case = true })
       local bool_true_U = augend.constant.new({ elements = { "TRUE", "FALSE" }, preserve_case = true })
       local bool_true_C = augend.constant.new({ elements = { "True", "False" }, preserve_case = true })
+      local bool_yes_L = augend.constant.new({ elements = { "yes", "no" }, preserve_case = true })
       local reg = {
         augend.integer.alias.decimal,
         augend.semver.alias.semver,
         bool_true_L,
         bool_true_U,
         bool_true_C,
+        bool_yes_L,
       }
       require("dial.config").augends:register_group({
         default = reg,
