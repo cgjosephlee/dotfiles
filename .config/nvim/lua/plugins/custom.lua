@@ -20,7 +20,7 @@ return {
     "Wansmer/treesj",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     keys = {
-      { "<leader>cJ", "<cmd>TSJToggle<cr>", desc = "Toggle SplitJoin" },
+      { "<leader>cj", "<cmd>TSJToggle<cr>", desc = "Toggle SplitJoin" },
     },
     opts = {
       use_default_keymaps = false,
