@@ -158,6 +158,9 @@ _fzf_compgen_dir() {
     fd --type d --hidden --follow --exclude ".git" . "$1"
 }
 
+# disable selection after paste
+zle_highlight=('paste:none')
+
 # Auto-completion settings
 # zstyle ":completion:*" verbose yes
 # zstyle ":completion:*:descriptions" format "%B%d%b"
