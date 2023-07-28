@@ -125,14 +125,15 @@ zinit wait lucid light-mode for \
 
 # Load completions
 zinit wait lucid as"completion" for \
-    https://github.com/cgjosephlee/GNU-parallel-zsh-completion/raw/master/_parallel \
+    https://github.com/conda-incubator/conda-zsh-completion/raw/master/_conda \
     https://github.com/sharkdp/fd/raw/master/contrib/completion/_fd \
     https://github.com/ogham/exa/raw/master/completions/zsh/_exa \
     https://github.com/TheLocehiliosan/yadm/raw/master/completion/zsh/_yadm \
-    https://gist.githubusercontent.com/cgjosephlee/3881444e34a0b347075ba317150a2758/raw/86c3fe4ead1f83ae3e72cb37b7a96952ffdf07bb/_csvtk
+    https://github.com/cgjosephlee/GNU-parallel-zsh-completion/raw/master/_parallel \
+    https://gist.githubusercontent.com/cgjosephlee/1fd70fa83c475c471c1f6501891abf2e/raw/dc28bdeca0f60f47f3908003605e0bdabfd64b86/_poetry \
+    https://gist.githubusercontent.com/cgjosephlee/3881444e34a0b347075ba317150a2758/raw/ed9f36dc948077689aa69c877d13851ae5f77cd4/_csvtk
 zinit wait lucid light-mode blockf for \
     zsh-users/zsh-completions \
-    esc/conda-zsh-completion \
     kloetzl/biozsh
 
 # This one is to be ran just once, in interactive session.
