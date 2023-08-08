@@ -126,6 +126,7 @@ zinit wait lucid light-mode for \
 # Load completions
 zinit wait lucid as"completion" for \
     https://github.com/conda-incubator/conda-zsh-completion/raw/master/_conda \
+    https://gist.githubusercontent.com/cgjosephlee/dd95962f3b975ff016e01fa290a7daf0/raw/1675b03f1a413b2a422647ee63e33e32e060d720/_bat \
     https://github.com/sharkdp/fd/raw/master/contrib/completion/_fd \
     https://github.com/ogham/exa/raw/master/completions/zsh/_exa \
     https://github.com/TheLocehiliosan/yadm/raw/master/completion/zsh/_yadm \
