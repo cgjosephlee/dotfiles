@@ -1,3 +1,15 @@
 gui:
   language: 'en'
   showFileTree: false
+customCommands:
+  - key: 'P'
+    command: "git push {{.SelectedRemote.RefName}} {{.SelectedLocalCommit.Sha}}:{{.SelectedLocalBranch.RefName}}"
+    context: "commits"
+    loadingText: "Pushing commit..."
+    description: "push a specific commit (and any preceding)"
+    stream: yes
+  - key: '<c-p>'
+    command: "git pull --rebase=false --ff-only"
+    context: "global"
+    loadingText: "Pulling..."
+    description: "pull --rebase=false --ff-only"
