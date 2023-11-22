@@ -4,6 +4,7 @@ return {
   {
     "HiPhish/nvim-ts-rainbow2",
     lazy = true,
+    vscode = true,  -- not used but required for loading treesitter
   },
   {
     "nvim-treesitter/nvim-treesitter",
@@ -18,6 +19,7 @@ return {
   },
   {
     "Wansmer/treesj",
+    vscode = true,
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     keys = {
       { "<leader>cj", "<cmd>TSJToggle<cr>", desc = "Toggle SplitJoin" },
@@ -29,6 +31,7 @@ return {
   },
   {
     "monaqa/dial.nvim",
+    vscode = true,
     -- stylua: ignore
     keys = {
       { "<C-a>", function() return require("dial.map").inc_normal() end, expr = true, desc = "Increment" },
