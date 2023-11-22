@@ -13,3 +13,6 @@ customCommands:
     context: "global"
     loadingText: "Pulling..."
     description: "pull --rebase=false --ff-only"
+
+# on mac
+# ln -s ~/.config/lazygit/config.yml ~/Library/Application\ Support/lazygit/config.yml
