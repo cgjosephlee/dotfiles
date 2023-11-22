@@ -22,7 +22,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = {
-      autoformat = false,
+      -- autoformat = false,
       format_notify = true,
       -- servers = {
       --   jsonls = { enable = false, mason = false },
