@@ -109,6 +109,11 @@ zinit wait lucid from"gh-r" as"null" for \
     lbin"!**/rg" @BurntSushi/ripgrep \
     lbin"!lazygit" @jesseduffield/lazygit
 
+zinit ice wait lucid from"gh-r" as"null" \
+    atclone"./zoxide init zsh > init.zsh" \
+    atpull"%atclone" src"init.zsh" nocompile"!" lbin"!zoxide"
+zinit light @ajeetdsouza/zoxide
+
 # Additional programs
 # zinit wait lucid from"gh-r" as"null" for \
 #     lbin"!csvtk" @shenwei356/csvtk \
