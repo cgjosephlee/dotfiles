@@ -89,6 +89,8 @@ bindkey "^[OA" up-line-or-beginning-search
 bindkey "^[OB" down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search
 bindkey "^[[B" down-line-or-beginning-search
+bindkey "^k" up-line-or-beginning-search
+bindkey "^j" down-line-or-beginning-search
 bindkey -M vicmd "k" up-line-or-beginning-search
 bindkey -M vicmd "j" down-line-or-beginning-search
 KEYTIMEOUT=1
@@ -120,14 +122,6 @@ zinit light @ajeetdsouza/zoxide
 #     ver"stable" bpick"*appimage" lbin"!nvim* -> nvim" neovim/neovim \
 #     bpick"*AppImage" lbin"!tmux* -> tmux" nelsonenzo/tmux-appimage
 
-# Load plugins
-zinit wait lucid light-mode for \
-    atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
-        zdharma-continuum/fast-syntax-highlighting \
-    multisrc"shell/*.zsh" id-as"junegunn/fzf_completions" \
-        junegunn/fzf \
-    Tarrasch/zsh-bd
-
 # Load completions
 zinit wait lucid as"completion" for \
     https://github.com/conda-incubator/conda-zsh-completion/raw/master/_conda \
@@ -138,9 +132,15 @@ zinit wait lucid as"completion" for \
     https://github.com/cgjosephlee/GNU-parallel-zsh-completion/raw/master/_parallel \
     https://gist.githubusercontent.com/cgjosephlee/1fd70fa83c475c471c1f6501891abf2e/raw/dc28bdeca0f60f47f3908003605e0bdabfd64b86/_poetry \
     https://gist.githubusercontent.com/cgjosephlee/3881444e34a0b347075ba317150a2758/raw/ed9f36dc948077689aa69c877d13851ae5f77cd4/_csvtk
-zinit wait lucid light-mode blockf for \
-    zsh-users/zsh-completions \
-    kloetzl/biozsh
+zinit wait lucid light-mode for \
+    atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
+        zdharma-continuum/fast-syntax-highlighting \
+    multisrc"shell/*.zsh" id-as"junegunn/fzf_completions" \
+        junegunn/fzf \
+    blockf \
+        zsh-users/zsh-completions \
+    blockf \
+        kloetzl/biozsh
 
 # This one is to be ran just once, in interactive session.
 # zinit creinstall /opt/homebrew/share/zsh/site-functions
