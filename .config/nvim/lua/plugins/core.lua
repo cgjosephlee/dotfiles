@@ -20,19 +20,6 @@ return {
     },
   },
   {
-    "neovim/nvim-lspconfig",
-    opts = {
-      -- autoformat = false,
-      format_notify = true,
-      -- servers = {
-      --   jsonls = { enable = false, mason = false },
-      --   lua_ls = { enable = false, mason = false },
-      --   stylus = { enable = false, mason = false },
-      --   shfmt = { enable = false, mason = false },
-      -- },
-    },
-  },
-  {
     "akinsho/bufferline.nvim",
     keys = {
       { "<leader>bj", "<cmd>BufferLinePick<cr>", desc = "Jump to" },
