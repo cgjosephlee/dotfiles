@@ -34,4 +34,8 @@ return {
       },
     },
   },
+  {
+    "mini.pairs",
+    vscode = false,
+  },
 }
