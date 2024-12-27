@@ -7,3 +7,5 @@ local opt = vim.opt
 opt.shiftwidth = 4
 opt.tabstop = 4
 opt.timeoutlen = 500
+
+vim.g.snacks_animate = false
