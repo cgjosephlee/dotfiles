@@ -4,15 +4,18 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"  ]
     source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 ### Added by Zinit's installer
-if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
-    print -P "%F{33}▓▒░ %F{220}Installing DHARMA Initiative Plugin Manager (zdharma-continuum/zinit)…%f"
-    command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
-    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.zinit/bin" && \
-        print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
-        print -P "%F{160}▓▒░ The clone has failed.%f%b"
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+if [[ ! -f $ZINIT_HOME/zinit.zsh ]]; then
+    print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
+    command mkdir -p "$(dirname $ZINIT_HOME)" && command chmod g-rwX "$(dirname $ZINIT_HOME)"
+    command git clone https://github.com/zdharma-continuum/zinit "$ZINIT_HOME" && \
+        print -P "%F{33} %F{34}Installation successful.%f%b" || \
+        print -P "%F{160} The clone has failed.%f%b"
 fi
 
-source "$HOME/.zinit/bin/zinit.zsh"
+declare -A ZINIT
+ZINIT[NO_ALIASES]=1
+source "$ZINIT_HOME/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
@@ -125,22 +128,20 @@ zinit light @ajeetdsouza/zoxide
 # Load completions
 zinit wait lucid as"completion" for \
     https://github.com/conda-incubator/conda-zsh-completion/raw/main/_conda \
-    https://gist.githubusercontent.com/cgjosephlee/dd95962f3b975ff016e01fa290a7daf0/raw/1675b03f1a413b2a422647ee63e33e32e060d720/_bat \
     https://github.com/sharkdp/fd/raw/master/contrib/completion/_fd \
-    https://github.com/TheLocehiliosan/yadm/raw/master/completion/zsh/_yadm \
     https://github.com/eza-community/eza/raw/main/completions/zsh/_eza \
+    https://github.com/yadm-dev/yadm/raw/master/completion/zsh/_yadm \
     https://github.com/cgjosephlee/GNU-parallel-zsh-completion/raw/master/_parallel \
-    https://gist.githubusercontent.com/cgjosephlee/1fd70fa83c475c471c1f6501891abf2e/raw/dc28bdeca0f60f47f3908003605e0bdabfd64b86/_poetry \
-    https://gist.githubusercontent.com/cgjosephlee/3881444e34a0b347075ba317150a2758/raw/ed9f36dc948077689aa69c877d13851ae5f77cd4/_csvtk
+    https://gist.github.com/cgjosephlee/dd95962f3b975ff016e01fa290a7daf0/raw/e2d88b8f931383aec5293358937a963f600bb69c/_bat \
+    https://gist.github.com/cgjosephlee/1fd70fa83c475c471c1f6501891abf2e/raw/dc28bdeca0f60f47f3908003605e0bdabfd64b86/_poetry \
+    https://gist.github.com/cgjosephlee/3881444e34a0b347075ba317150a2758/raw/ed9f36dc948077689aa69c877d13851ae5f77cd4/_csvtk
 zinit wait lucid light-mode for \
     atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
         zdharma-continuum/fast-syntax-highlighting \
     multisrc"shell/*.zsh" id-as"junegunn/fzf_completions" \
         junegunn/fzf \
     blockf \
-        zsh-users/zsh-completions \
-    blockf \
-        kloetzl/biozsh
+        zsh-users/zsh-completions
 
 # This one is to be ran just once, in interactive session.
 # zinit creinstall /opt/homebrew/share/zsh/site-functions
