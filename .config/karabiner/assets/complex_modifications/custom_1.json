@@ -44,7 +44,8 @@
                 "^co\\.zeit\\.hyper$",
                 "^io\\.alacritty$",
                 "^net\\.kovidgoyal\\.kitty$",
-                "^com\\.microsoft\\.VSCode"
+                "com\\.mitchellh\\.ghostty$",
+                "^com\\.microsoft\\.VSCode$"
               ]
             }
           ]
