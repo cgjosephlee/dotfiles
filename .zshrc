@@ -107,7 +107,7 @@ zinit wait lucid from"gh-r" as"null" for \
     lbin"!fzf" @junegunn/fzf \
     lbin"!**/fd" @sharkdp/fd \
     lbin"!**/bat" @sharkdp/bat \
-    lbin"!**/exa" @ogham/exa \
+    lbin"!**/eza" @eza-community/eza \
     lbin"!**/rg" @BurntSushi/ripgrep \
     lbin"!lazygit" @jesseduffield/lazygit
 
@@ -127,8 +127,8 @@ zinit wait lucid as"completion" for \
     https://github.com/conda-incubator/conda-zsh-completion/raw/main/_conda \
     https://gist.githubusercontent.com/cgjosephlee/dd95962f3b975ff016e01fa290a7daf0/raw/1675b03f1a413b2a422647ee63e33e32e060d720/_bat \
     https://github.com/sharkdp/fd/raw/master/contrib/completion/_fd \
-    https://github.com/ogham/exa/raw/master/completions/zsh/_exa \
     https://github.com/TheLocehiliosan/yadm/raw/master/completion/zsh/_yadm \
+    https://github.com/eza-community/eza/raw/main/completions/zsh/_eza \
     https://github.com/cgjosephlee/GNU-parallel-zsh-completion/raw/master/_parallel \
     https://gist.githubusercontent.com/cgjosephlee/1fd70fa83c475c471c1f6501891abf2e/raw/dc28bdeca0f60f47f3908003605e0bdabfd64b86/_poetry \
     https://gist.githubusercontent.com/cgjosephlee/3881444e34a0b347075ba317150a2758/raw/ed9f36dc948077689aa69c877d13851ae5f77cd4/_csvtk
@@ -207,10 +207,10 @@ alias 7='cd -7'
 alias 8='cd -8'
 alias 9='cd -9'
 alias ls='ls --color=auto --group-directories-first'
-alias lx='exa --group-directories-first'
-alias la='exa --group-directories-first -a'
-alias ll='exa -lgb --time-style=long-iso --icons --group-directories-first'
-alias lt='exa -lgb --time-style=long-iso --icons -s new'
+alias lx='eza --group-directories-first'
+alias la='eza --group-directories-first -a'
+alias ll='eza -lgb --time-style=long-iso --icons --group-directories-first'
+alias lt='eza -lgb --time-style=long-iso --icons -s new'
 alias l='less'
 alias L='less -S'
 alias zl='zless'
