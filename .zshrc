@@ -138,7 +138,7 @@ zinit wait lucid as"completion" for \
 zinit wait lucid light-mode for \
     atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
         zdharma-continuum/fast-syntax-highlighting \
-    multisrc"shell/*.zsh" id-as"junegunn/fzf_completions" \
+    as"null" multisrc"shell/*.zsh" id-as"junegunn/fzf_completions" \
         junegunn/fzf \
     blockf \
         zsh-users/zsh-completions
@@ -165,7 +165,7 @@ _fzf_compgen_dir() {
     fd --type d --hidden --follow --exclude ".git" . "$1"
 }
 
-# disable selection after paste
+# Disable selection after paste
 zle_highlight=('paste:none')
 
 # Auto-completion settings
