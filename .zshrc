@@ -119,6 +119,12 @@ zinit ice wait lucid from"gh-r" as"null" \
     atpull"%atclone" src"init.zsh" nocompile"!" lbin"!zoxide"
 zinit light @ajeetdsouza/zoxide
 
+zinit ice wait lucid from"gh-r" as"null" \
+    atclone'echo "export LS_COLORS=\"$(./vivid*/vivid generate nord)\"" > init.zsh' \
+    atpull"%atclone" src"init.zsh" nocompile"!" \
+    atload'zstyle ":completion:*" list-colors "${(s.:.)LS_COLORS}"'
+zinit light @sharkdp/vivid
+
 # Additional programs
 # zinit wait lucid from"gh-r" as"null" for \
 #     lbin"!csvtk" @shenwei356/csvtk \
@@ -145,13 +151,6 @@ zinit wait lucid light-mode for \
 
 # This one is to be ran just once, in interactive session.
 # zinit creinstall /opt/homebrew/share/zsh/site-functions
-
-# Load dircolors
-# https://zdharma-continuum.github.io/zinit/wiki/LS_COLORS-explanation/
-zinit ice atclone"dircolors -b src/dir_colors > clrs.zsh" \
-    atpull"%atclone" pick"clrs.zsh" nocompile"!" \
-    atload'zstyle ":completion:*" list-colors "${(s.:.)LS_COLORS}"'
-zinit light arcticicestudio/nord-dircolors
 
 # FZF settings
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --exclude .git"
