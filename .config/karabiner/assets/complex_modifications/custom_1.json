@@ -40,11 +40,10 @@
               "bundle_identifiers": [
                 "^com\\.apple\\.Terminal$",
                 "^com\\.googlecode\\.iterm2$",
-                "^co\\.zeit\\.hyperterm$",
                 "^co\\.zeit\\.hyper$",
                 "^io\\.alacritty$",
                 "^net\\.kovidgoyal\\.kitty$",
-                "com\\.mitchellh\\.ghostty$",
+                "^com\\.mitchellh\\.ghostty$",
                 "^com\\.microsoft\\.VSCode$"
               ]
             }
