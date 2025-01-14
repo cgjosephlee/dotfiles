@@ -8,3 +8,4 @@ window-height = 40
 window-width = 130
 copy-on-select = false
 quit-after-last-window-closed = true
+term = xterm-256color
