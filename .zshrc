@@ -78,26 +78,6 @@ typeset -g POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND="152"
 
 typeset -g GITSTATUS_NUM_THREADS=1
 
-# Enable vi key bindings
-# zinit snippet OMZ::lib/key-bindings.zsh  # default emacs key bindings
-autoload -U up-line-or-beginning-search
-autoload -U down-line-or-beginning-search
-zle -N up-line-or-beginning-search
-zle -N down-line-or-beginning-search
-bindkey -v
-bindkey "^?" backward-delete-char
-bindkey "^h" backward-delete-char
-bindkey "^w" backward-kill-word
-bindkey "^[OA" up-line-or-beginning-search
-bindkey "^[OB" down-line-or-beginning-search
-bindkey "^[[A" up-line-or-beginning-search
-bindkey "^[[B" down-line-or-beginning-search
-bindkey "^k" up-line-or-beginning-search
-bindkey "^j" down-line-or-beginning-search
-bindkey -M vicmd "k" up-line-or-beginning-search
-bindkey -M vicmd "j" down-line-or-beginning-search
-KEYTIMEOUT=1
-
 # Load OMZ scripts
 # CASE_SENSITIVE="true"
 HYPHEN_INSENSITIVE="true"
@@ -129,6 +109,7 @@ zinit light @sharkdp/vivid
 # zinit wait lucid from"gh-r" as"null" for \
 #     lbin"!csvtk" @shenwei356/csvtk \
 #     ver"stable" bpick"*appimage" lbin"!nvim* -> nvim" neovim/neovim \
+#     ver"stable" bpick"*appimage" lbin"!nvim* -> nvim" neovim/neovim-releases \
 #     bpick"*AppImage" lbin"!tmux* -> tmux" nelsonenzo/tmux-appimage
 
 # Load completions
@@ -164,6 +145,26 @@ _fzf_compgen_dir() {
     fd --type d --hidden --follow --exclude ".git" . "$1"
 }
 
+# Enable vi key bindings
+# zinit snippet OMZ::lib/key-bindings.zsh  # default emacs key bindings
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey -v
+bindkey "^?" backward-delete-char
+bindkey "^h" backward-delete-char
+bindkey "^w" backward-kill-word
+bindkey "^[OA" up-line-or-beginning-search
+bindkey "^[OB" down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search
+bindkey "^[[B" down-line-or-beginning-search
+bindkey "^k" up-line-or-beginning-search
+bindkey "^j" down-line-or-beginning-search
+bindkey -M vicmd "k" up-line-or-beginning-search
+bindkey -M vicmd "j" down-line-or-beginning-search
+KEYTIMEOUT=1
+
 # Disable selection after paste
 zle_highlight=('paste:none')
 
@@ -179,9 +180,7 @@ ZLE_SPACE_SUFFIX_CHARS=$'|'
 ZLE_REMOVE_SUFFIX_CHARS=$' \t\n;&'
 
 # Load custom profile
-if [ -f "$HOME/.profile" ]; then
-    source "$HOME/.profile"
-fi
+[[ -f "$HOME/.profile" ]] && source "$HOME/.profile"
 
 # Functions
 src() {exec $SHELL}
