@@ -129,6 +129,7 @@ zinit light @sharkdp/vivid
 # zinit wait lucid from"gh-r" as"null" for \
 #     lbin"!csvtk" @shenwei356/csvtk \
 #     ver"stable" bpick"*appimage" lbin"!nvim* -> nvim" neovim/neovim \
+#     ver"stable" bpick"*appimage" lbin"!nvim* -> nvim" neovim/neovim-releases \
 #     bpick"*AppImage" lbin"!tmux* -> tmux" nelsonenzo/tmux-appimage
 
 # Load completions
@@ -179,9 +180,7 @@ ZLE_SPACE_SUFFIX_CHARS=$'|'
 ZLE_REMOVE_SUFFIX_CHARS=$' \t\n;&'
 
 # Load custom profile
-if [ -f "$HOME/.profile" ]; then
-    source "$HOME/.profile"
-fi
+[[ -f "$HOME/.profile" ]] && source "$HOME/.profile"
 
 # Functions
 src() {exec $SHELL}
