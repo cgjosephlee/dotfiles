@@ -13,7 +13,7 @@ if [[ ! -f $ZINIT_HOME/zinit.zsh ]]; then
         print -P "%F{160} The clone has failed.%f%b"
 fi
 
-declare -A ZINIT
+typeset -A ZINIT
 ZINIT[NO_ALIASES]=1
 source "$ZINIT_HOME/zinit.zsh"
 autoload -Uz _zinit
@@ -22,13 +22,17 @@ autoload -Uz _zinit
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
 zinit light-mode for \
-    zdharma-continuum/zinit-annex-binary-symlink
+    @zdharma-continuum/zinit-annex-binary-symlink \
+    @zdharma-continuum/zinit-annex-patch-dl
 
 ### End of Zinit's installer chunk
 
 # Load theme
 zinit ice depth=1 src"$HOME/.p10k.zsh"
-zinit light romkatv/powerlevel10k
+zinit light @romkatv/powerlevel10k
+
+zinit ice wait lucid atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay"
+zinit light @zdharma-continuum/fast-syntax-highlighting
 
 # Load OMZ scripts
 # CASE_SENSITIVE="true"
@@ -38,17 +42,28 @@ zinit snippet OMZ::lib/history.zsh
 zinit snippet OMZ::plugins/git/git.plugin.zsh
 
 # Load programs
+zinit ice wait lucid from"gh-r" as"null" \
+    completions dl"https://github.com/unixorn/fzf-zsh-plugin/raw/main/completions/_fzf" \
+    atclone"./fzf --zsh > init.zsh" \
+    atpull"%atclone" src"init.zsh" nocompile"!" lbin"!fzf"
+zinit light @junegunn/fzf
+
 zinit wait lucid from"gh-r" as"null" for \
-    lbin"!fzf" @junegunn/fzf \
-    lbin"!**/fd" @sharkdp/fd \
-    lbin"!**/bat" @sharkdp/bat \
-    lbin"!**/eza" @eza-community/eza \
-    lbin"!**/rg" @BurntSushi/ripgrep \
+    lbin"!**/bat" completions mv"**/bat.zsh -> _bat" \
+        @sharkdp/bat \
+    lbin"!**/fd" completions @sharkdp/fd \
+    lbin"!**/rg" completions @BurntSushi/ripgrep \
     lbin"!lazygit" @jesseduffield/lazygit
+
+## arm binary not available, do not load on macOS
+zinit wait lucid if'[[ $OSTYPE != darwin* ]]' from"gh-r" as"null" for \
+    lbin"!eza" completions dl"https://github.com/eza-community/eza/raw/main/completions/zsh/_eza" \
+        @eza-community/eza
 
 zinit ice wait lucid from"gh-r" as"null" \
     atclone"./zoxide init zsh > init.zsh" \
-    atpull"%atclone" src"init.zsh" nocompile"!" lbin"!zoxide"
+    atpull"%atclone" src"init.zsh" nocompile"!" \
+    lbin"!zoxide" completions
 zinit light @ajeetdsouza/zoxide
 
 zinit ice wait lucid from"gh-r" as"null" \
@@ -58,29 +73,37 @@ zinit ice wait lucid from"gh-r" as"null" \
 zinit light @sharkdp/vivid
 
 # Additional programs
-# zinit wait lucid from"gh-r" as"null" for \
-#     lbin"!csvtk" @shenwei356/csvtk \
-#     ver"stable" bpick"*appimage" lbin"!nvim* -> nvim" neovim/neovim \
-#     ver"stable" bpick"*appimage" lbin"!nvim* -> nvim" neovim/neovim-releases \
-#     bpick"*AppImage" lbin"!tmux* -> tmux" nelsonenzo/tmux-appimage
+typeset ZINIT_A_PROGRAMS=()
+zinit wait lucid from"gh-r" as"null" for \
+    if'(( $ZINIT_A_PROGRAMS[(I)lazydocker] ))' \
+    lbin"!lazydocker" \
+        @jesseduffield/lazydocker \
+    if'(( $ZINIT_A_PROGRAMS[(I)jaq] ))' \
+    lbin"!jaq-* -> jq" \
+        @01mf02/jaq \
+    if'(( $ZINIT_A_PROGRAMS[(I)jnv] ))' \
+    lbin"!jnv" \
+        @ynqa/jnv \
+    if'(( $ZINIT_A_PROGRAMS[(I)csvtk] ))' \
+    lbin"!csvtk" completions atclone"./csvtk genautocomplete --shell zsh --file _csvtk" atpull"%atclone" \
+        @shenwei356/csvtk \
+    if'(( $ZINIT_A_PROGRAMS[(I)nvim] ))' \
+    ver"stable" bpick"*appimage" lbin"!nvim* -> nvim" \
+        @neovim/neovim \
+    if'(( $ZINIT_A_PROGRAMS[(I)nvim-r] ))' \
+    ver"stable" bpick"*appimage" lbin"!nvim* -> nvim" \
+        @neovim/neovim-releases \
+    if'(( $ZINIT_A_PROGRAMS[(I)tmux] ))' \
+    bpick"*AppImage" lbin"!tmux* -> tmux" \
+        @nelsonenzo/tmux-appimage
 
 # Load completions
 zinit wait lucid as"completion" for \
-    https://github.com/conda-incubator/conda-zsh-completion/raw/main/_conda \
-    https://github.com/sharkdp/fd/raw/master/contrib/completion/_fd \
-    https://github.com/eza-community/eza/raw/main/completions/zsh/_eza \
     https://github.com/yadm-dev/yadm/raw/master/completion/zsh/_yadm \
+    https://github.com/conda-incubator/conda-zsh-completion/raw/main/_conda \
     https://github.com/cgjosephlee/GNU-parallel-zsh-completion/raw/master/_parallel \
-    https://gist.github.com/cgjosephlee/dd95962f3b975ff016e01fa290a7daf0/raw/e2d88b8f931383aec5293358937a963f600bb69c/_bat \
-    https://gist.github.com/cgjosephlee/1fd70fa83c475c471c1f6501891abf2e/raw/dc28bdeca0f60f47f3908003605e0bdabfd64b86/_poetry \
-    https://gist.github.com/cgjosephlee/3881444e34a0b347075ba317150a2758/raw/ed9f36dc948077689aa69c877d13851ae5f77cd4/_csvtk
-zinit wait lucid light-mode for \
-    atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
-        zdharma-continuum/fast-syntax-highlighting \
-    as"null" multisrc"shell/*.zsh" id-as"junegunn/fzf_completions" \
-        junegunn/fzf \
-    blockf \
-        zsh-users/zsh-completions
+    @cgjosephlee/zsh-completions \
+    @zsh-users/zsh-completions
 
 # This one is to be ran just once, in interactive session.
 # zinit creinstall /opt/homebrew/share/zsh/site-functions
