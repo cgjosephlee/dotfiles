@@ -31,24 +31,23 @@ zinit light-mode for \
 zinit ice depth=1 src"$HOME/.p10k.zsh"
 zinit light @romkatv/powerlevel10k
 
-zinit ice wait lucid atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay"
-zinit light @zdharma-continuum/fast-syntax-highlighting
-
 # Load OMZ scripts
 # CASE_SENSITIVE="true"
 HYPHEN_INSENSITIVE="true"
-zinit snippet OMZ::lib/completion.zsh
-zinit snippet OMZ::lib/history.zsh
-zinit snippet OMZ::plugins/git/git.plugin.zsh
+zinit light-mode wait lucid for \
+    OMZ::lib/completion.zsh \
+    OMZ::lib/history.zsh \
+    OMZ::plugins/git/git.plugin.zsh \
+    OMZ::plugins/ssh/ssh.plugin.zsh
 
 # Load programs
 zinit ice wait lucid from"gh-r" as"null" \
     completions dl"https://github.com/unixorn/fzf-zsh-plugin/raw/main/completions/_fzf" \
-    atclone"./fzf --zsh > init.zsh" \
-    atpull"%atclone" src"init.zsh" nocompile"!" lbin"!fzf"
+    atclone"./fzf --zsh > init.zsh && zcompile -R init.zsh" \
+    atpull"%atclone" src"init.zsh" lbin"!fzf"
 zinit light @junegunn/fzf
 
-zinit wait lucid from"gh-r" as"null" for \
+zinit light-mode wait lucid from"gh-r" as"null" for \
     lbin"!**/bat" completions mv"**/bat.zsh -> _bat" \
         @sharkdp/bat \
     lbin"!**/fd" completions @sharkdp/fd \
@@ -56,25 +55,25 @@ zinit wait lucid from"gh-r" as"null" for \
     lbin"!lazygit" @jesseduffield/lazygit
 
 ## arm binary not available, do not load on macOS
-zinit wait lucid if'[[ $OSTYPE != darwin* ]]' from"gh-r" as"null" for \
+zinit light-mode wait lucid if'[[ $OSTYPE != darwin* ]]' from"gh-r" as"null" for \
     lbin"!eza" completions dl"https://github.com/eza-community/eza/raw/main/completions/zsh/_eza" \
         @eza-community/eza
 
 zinit ice wait lucid from"gh-r" as"null" \
-    atclone"./zoxide init zsh > init.zsh" \
-    atpull"%atclone" src"init.zsh" nocompile"!" \
+    atclone"./zoxide init zsh > init.zsh && zcompile -R init.zsh" \
+    atpull"%atclone" src"init.zsh" \
     lbin"!zoxide" completions
 zinit light @ajeetdsouza/zoxide
 
 zinit ice wait lucid from"gh-r" as"null" \
-    atclone'echo "export LS_COLORS=\"$(./vivid*/vivid generate nord)\"" > init.zsh' \
-    atpull"%atclone" src"init.zsh" nocompile"!" \
+    atclone'echo "export LS_COLORS=\"$(./vivid*/vivid generate nord)\"" > init.zsh && zcompile -R init.zsh' \
+    atpull"%atclone" src"init.zsh" \
     atload'zstyle ":completion:*" list-colors "${(s.:.)LS_COLORS}"'
 zinit light @sharkdp/vivid
 
 # Additional programs
 typeset ZINIT_A_PROGRAMS=()
-zinit wait lucid from"gh-r" as"null" for \
+zinit light-mode wait lucid from"gh-r" as"null" for \
     if'(( $ZINIT_A_PROGRAMS[(I)lazydocker] ))' \
     lbin"!lazydocker" \
         @jesseduffield/lazydocker \
@@ -98,12 +97,16 @@ zinit wait lucid from"gh-r" as"null" for \
         @nelsonenzo/tmux-appimage
 
 # Load completions
-zinit wait lucid as"completion" for \
+zinit light-mode wait lucid as"completion" for \
     https://github.com/yadm-dev/yadm/raw/master/completion/zsh/_yadm \
     https://github.com/conda-incubator/conda-zsh-completion/raw/main/_conda \
     https://github.com/cgjosephlee/GNU-parallel-zsh-completion/raw/master/_parallel \
     @cgjosephlee/zsh-completions \
     @zsh-users/zsh-completions
+
+# this should be the last one loaded
+zinit ice wait lucid atinit"zicompinit; zicdreplay; [[ ~/.zcompdump.zwc -nt ~/.zcompdump ]] || zcompile -R ~/.zcompdump"
+zinit light @zdharma-continuum/fast-syntax-highlighting
 
 # This one is to be ran just once, in interactive session.
 # zinit creinstall /opt/homebrew/share/zsh/site-functions
@@ -148,9 +151,6 @@ zle_highlight=('paste:none')
 # zstyle ":completion:*:descriptions" format "%B%d%b"
 zstyle ":completion:*:messages" format "%d"
 zstyle ":completion:*:warnings" format "No matches for: %B%d%b"
-# zstyle -s ":completion:*:hosts" hosts _ssh_config
-[[ -r ~/.ssh/config ]] && _ssh_config+=($(grep -v '#' ~/.ssh/config | sed -ne 's/Host[=\t ]//p'))
-zstyle ":completion:*:hosts" hosts $_ssh_config
 ZLE_SPACE_SUFFIX_CHARS=$'|'
 ZLE_REMOVE_SUFFIX_CHARS=$' \t\n;&'
 
