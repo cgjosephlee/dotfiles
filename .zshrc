@@ -130,8 +130,9 @@ autoload -U down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey -v
-bindkey "^?" backward-delete-char
-bindkey "^h" backward-delete-char
+bindkey "^?" backward-delete-char  # Backspace
+bindkey "^H" backward-delete-char  # Backspace
+bindkey "^[[3~" delete-char  # Delete
 bindkey "^w" backward-kill-word
 bindkey "^[OA" up-line-or-beginning-search
 bindkey "^[OB" down-line-or-beginning-search
