@@ -28,7 +28,7 @@ zinit light-mode for \
 ### End of Zinit's installer chunk
 
 # Load theme
-zinit ice depth=1 src"$HOME/.p10k.zsh"
+zinit ice depth=1 src"${XDG_CONFIG_HOME:-$HOME/.config}/zsh/p10k.zsh"
 zinit light @romkatv/powerlevel10k
 
 # Load OMZ scripts
