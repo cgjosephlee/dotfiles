@@ -1,8 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Aim to remove latency of loading conda
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"  ]]; then
-    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
 ### Added by Zinit's installer
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 if [[ ! -f $ZINIT_HOME/zinit.zsh ]]; then
@@ -87,13 +82,13 @@ zinit light-mode wait lucid from"gh-r" as"null" for \
     lbin"!csvtk" completions atclone"./csvtk genautocomplete --shell zsh --file _csvtk" atpull"%atclone" \
         @shenwei356/csvtk \
     if'(( $ZINIT_A_PROGRAMS[(I)nvim] ))' \
-    ver"stable" bpick"*appimage" lbin"!nvim* -> nvim" \
+    bpick"*gz" lbin"!**/nvim" \
         @neovim/neovim \
     if'(( $ZINIT_A_PROGRAMS[(I)nvim-r] ))' \
-    ver"stable" bpick"*appimage" lbin"!nvim* -> nvim" \
+    bpick"*appimage" lbin"!nvim* -> nvim" \
         @neovim/neovim-releases \
     if'(( $ZINIT_A_PROGRAMS[(I)tmux] ))' \
-    bpick"*AppImage" lbin"!tmux* -> tmux" \
+    bpick"*appimage" lbin"!tmux* -> tmux" \
         @nelsonenzo/tmux-appimage
 
 # Load completions
