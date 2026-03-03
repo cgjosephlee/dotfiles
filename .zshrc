@@ -93,10 +93,6 @@ zinit light-mode wait lucid from"gh-r" as"null" for \
 
 # Load completions
 zinit light-mode wait lucid as"completion" for \
-    https://github.com/yadm-dev/yadm/raw/master/completion/zsh/_yadm \
-    https://github.com/conda-incubator/conda-zsh-completion/raw/main/_conda \
-    https://github.com/cgjosephlee/GNU-parallel-zsh-completion/raw/master/_parallel \
-    @cgjosephlee/zsh-completions \
     @zsh-users/zsh-completions
 
 # this should be the last one loaded
