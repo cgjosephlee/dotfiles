@@ -36,6 +36,9 @@ zinit light-mode wait lucid for \
     OMZ::plugins/ssh/ssh.plugin.zsh
 
 # Load programs
+zinit ice wait lucid as"null" ver"master" completions lbin"!yadm"
+zinit light @yadm-dev/yadm
+
 zinit ice wait lucid from"gh-r" as"null" \
     completions dl"https://github.com/unixorn/fzf-zsh-plugin/raw/main/completions/_fzf" \
     atclone"./fzf --zsh > init.zsh && zcompile -R init.zsh" \
