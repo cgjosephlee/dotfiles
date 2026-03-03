@@ -1,31 +1,37 @@
 #!/bin/sh
 set -e
 
+# Configuration
 REPO_URL="https://github.com/cgjosephlee/dotfiles"
-CONFLICT_FILES=( ".zshrc" ".vimrc" ".tmux.conf" )
-TMP_DIR=$(mktemp -d)
+CONFLICTS=".zshrc .vimrc .tmux.conf"
 
-# Remove temporary directory after the script exits
-trap 'rm -rf "$TMP_DIR"' EXIT
+echo "Starting dotfiles installation..."
 
-# Check for existing config files
-for file in "${CONFLICT_FILES[@]}"; do
-    target="$HOME/$file"
-    if [ -f "$target" ] || [ -L "$target" ]; then
-        if [ ! -L "$target" ]; then
-            echo "Found existing $file, backing up to ${file}.bak"
-            mv "$target" "${target}.bak"
-        else
-            echo "$file is a symlink, removing it to avoid conflict"
-            rm "$target"
-        fi
-    fi
-done
+# 1. Create temporary environment
+TMP_DIR=$(mktemp -d 2>/dev/null || mktemp -d -t 'yadm')
+trap 'rm -rf "$TMP_DIR"' EXIT INT TERM
 
-# Download temporary yadm
+# 2. Download yadm to temp directory
+echo "Downloading temporary yadm..."
 curl -fsSL https://github.com/yadm-dev/yadm/raw/master/yadm -o "$TMP_DIR/yadm"
 chmod +x "$TMP_DIR/yadm"
 
-export PATH="$TMP_DIR:$PATH"
+# 3. Handle file conflicts
+echo "Checking for existing files..."
+for f in $CONFLICTS; do
+    target="$HOME/$f"
+    if [ -h "$target" ]; then
+        echo "Removing symlink: $f"
+        rm "$target"
+    elif [ -f "$target" ]; then
+        echo "Backing up $f to $f.bak"
+        mv "$target" "$f.bak"
+    fi
+done
 
-yadm clone "$REPO_URL"
+# 4. Clone and bootstrap
+# Prepending TMP_DIR to PATH ensures hooks can find 'yadm'
+echo "Cloning from $REPO_URL..."
+PATH="$TMP_DIR:$PATH" yadm clone --bootstrap "$REPO_URL"
+
+echo "Installation complete. Cleaned up temporary files."
