@@ -1,21 +1,14 @@
 # dotfiles <!-- omit in toc -->
 <!-- created by vscode Markdown All in One -->
-- [yadm](#yadm)
-  - [Installation](#installation)
-  - [Usage](#usage)
-- [iTerm2](#iterm2)
-  - [Color preset](#color-preset)
+- [Install dotfiles](#install-dotfiles)
+  - [Manage dotfiles](#manage-dotfiles)
+- [Ghostty](#ghostty)
   - [Font](#font)
   - [Other emulators](#other-emulators)
-- [Sublime Text 3](#sublime-text-3)
-  - [Package control](#package-control)
-  - [Theme](#theme)
-  - [Color scheme](#color-scheme)
-  - [Other plugins](#other-plugins)
 - [Bash](#bash)
   - [Bash-it](#bash-it)
   - [Oh my bash](#oh-my-bash)
-  - [Theme](#theme-1)
+  - [Theme](#theme)
   - [PS1 config](#ps1-config)
 - [Zsh](#zsh)
   - [Setup zsh](#setup-zsh)
@@ -23,13 +16,10 @@
   - [Plugins](#plugins)
     - [powerlevel10k](#powerlevel10k)
     - [Fast-syntax-highlighting](#fast-syntax-highlighting)
-    - [biozsh](#biozsh)
 - [Neovim](#neovim)
-  - [Installation](#installation-1)
+  - [Installation](#installation)
   - [LazyVim](#lazyvim)
-  - [LSP](#lsp)
-    - [Install nodejs](#install-nodejs)
-    - [Install language server](#install-language-server)
+  - [LSP manager](#lsp-manager)
   - [Vscode intergration](#vscode-intergration)
   - [References](#references)
     - [Cheatsheet](#cheatsheet)
@@ -37,40 +27,31 @@
 - [Vim](#vim)
   - [vim-plug](#vim-plug)
 - [Tmux](#tmux)
-  - [Installation](#installation-2)
+  - [Installation](#installation-1)
     - [Source](#source)
     - [Appimage](#appimage)
   - [Tmux Plugin Manager (tpm)](#tmux-plugin-manager-tpm)
-  - [Other plugins](#other-plugins-1)
+  - [Other plugins](#other-plugins)
+  - [Alternatives](#alternatives)
 - [Misc](#misc)
   - [dotfiles managers](#dotfiles-managers)
+- [Archive](#archive)
 
-
-# [yadm](https://yadm.io)
-## Installation
-Linux
+# Install dotfiles
+Dotfiles are managed by [yadm](https://yadm.io). The install script will install yadm and then install dotfiles.
 ```sh
-curl -fLo yadm https://github.com/TheLocehiliosan/yadm/raw/master/yadm && chmod a+x yadm
-```
-MacOS
-```sh
-brew install yadm
+curl -fsSL https://github.com/cgjosephlee/dotfiles/raw/refs/heads/master/install.sh | sh
 ```
 
-## Usage
-yadm inherits all of Git’s features.
+## Manage dotfiles
 ```sh
-yadm clone https://github.com/cgjosephlee/dotfiles
+lazygit -w ~ -g ~/.local/share/yadm/repo.git
 ```
 
-# iTerm2
-## Color preset
-Nord, background = '#212327'.
-
+# [Ghostty](https://ghostty.org)
 ## Font
 13pt MesloLGS Nerd Font (patched Menlo, LGS: line gap small)
 ```sh
-brew tap homebrew/cask-fonts
 brew install font-meslo-lg-nerd-font
 ```
 
@@ -78,30 +59,6 @@ brew install font-meslo-lg-nerd-font
 - [kitty](https://sw.kovidgoyal.net/kitty/)
 - [alacritty](https://github.com/jwilm/alacritty)
 - [hyper](https://hyper.is)
-
-# Sublime Text 3
-## [Package control](https://packagecontrol.io)
-[Installation guide](https://packagecontrol.io/installation)
-
-## Theme
-[Boxy](https://packagecontrol.io/packages/Boxy%20Theme): Monokai
-```json
-{
-    "theme": "Boxy Monokai.sublime-theme",
-    "theme_button_rounded": true,
-    "theme_find_panel_size_xxs": true,
-    "theme_sidebar_size_xs": true,
-}
-```
-
-## Color scheme
-Default Monokai
-
-## Other plugins
-- AlignTab
-- Markdown Preview
-- MarkdownTOC ([usage](https://github.com/naokazuterada/MarkdownTOC#usage))
-- SideBarEnhancements
 
 # Bash
 ## [Bash-it](https://github.com/Bash-it/bash-it)
@@ -152,7 +109,7 @@ exec zsh
 ## [zinit](https://github.com/zdharma-continuum/zinit)
 First install
 ```sh
-sh -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
+bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
 ```
 
 ## Plugins
@@ -179,57 +136,40 @@ awk 'BEGIN{
 }'
 ```
 
-### [Fast-syntax-highlighting](https://github.com/zdharma/fast-syntax-highlighting)
+### [Fast-syntax-highlighting](https://github.com/zdharma-continuum/fast-syntax-highlighting)
 An alternative of [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting).
 ```sh
 fast-theme safari
 ```
-
-### [biozsh](https://github.com/kloetzl/biozsh)
-Zsh autocompletes for plenty bioinfomatic tools.
 
 # [Neovim](https://neovim.io)
 ## Installation
 Just download and enjoy!
 ```sh
 # for linux
-curl -fLo nvim https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
+curl -fLo nvim https://github.com/neovim/neovim/releases/download/stable/nvim-linux-x86_64.appimage
 chmod +x nvim
 ```
 
 ## [LazyVim](https://www.lazyvim.org)
 A Neovim setup powered by [lazy.nvim](https://github.com/folke/lazy.nvim). All plugins should be installed automatically on first startup.
 
-## LSP
-### Install nodejs
-https://nodejs.org/en/download/
-```sh
-VERSION=v18.15.0
-DISTRO=linux-x64
-PREFIX=$HOME/local
-wget https://nodejs.org/dist/$VERSION/node-$VERSION-$DISTRO.tar.xz
-tar -xJf node-$VERSION-$DISTRO.tar.xz -C $PREFIX
-ln -s $PREFIX/node-$VERSION-$DISTRO/bin/* $PREFIX/bin
-```
-
-### Install language server
+## LSP manager
 ```
 :Mason
 ```
 
 ## Vscode intergration
 - https://github.com/vscode-neovim/vscode-neovim
-- https://github.com/cgjosephlee/dotfiles/blob/master/.config/nvim/lua/plugins/vscode.lua
 
 ## References
 ### Cheatsheet
 - https://vim.rtorr.com/lang/zh_tw/
 
 ### Setups
-- https://github.com/SpaceVim/SpaceVim
-- https://github.com/NvChad/NvChad
-- https://github.com/LunarVim/LunarVim
 - https://github.com/LazyVim/LazyVim
+- https://github.com/LunarVim/LunarVim
+- https://github.com/NvChad/NvChad
 - https://github.com/ayamir/nvimdots
 
 # Vim
@@ -260,7 +200,7 @@ make && make install
 ### Appimage
 https://github.com/nelsonenzo/tmux-appimage/releases
 ```
-curl -fLo tmux https://github.com/nelsonenzo/tmux-appimage/releases/download/tmux3.1b/tmux-3.1b-x86_64.AppImage
+curl -fLo tmux https://github.com/nelsonenzo/tmux-appimage/releases/download/tmux3.5a/tmux.appimage
 chmod +x tmux
 ```
 
@@ -290,6 +230,47 @@ or via command line ([ref](https://github.com/tmux-plugins/tpm/blob/master/docs/
 ## Other plugins
 - [tmux-prefix-highlight](https://github.com/tmux-plugins/tmux-prefix-highlight)
 
+## Alternatives
+- [zellij](https://zellij.dev/)
+
 # Misc
 ## dotfiles managers
 - https://dotfiles.github.io/utilities/
+
+# Archive
+
+<details>
+<summary>iTerm2</summary>
+
+## Color preset <!-- omit in toc -->
+Nord, background = '#212327'.
+
+</details>
+
+<details>
+<summary>Sublime Text 3</summary>
+
+## [Package control](https://packagecontrol.io) <!-- omit in toc -->
+[Installation guide](https://packagecontrol.io/installation)
+
+## Theme <!-- omit in toc -->
+[Boxy](https://packagecontrol.io/packages/Boxy%20Theme): Monokai
+```json
+{
+    "theme": "Boxy Monokai.sublime-theme",
+    "theme_button_rounded": true,
+    "theme_find_panel_size_xxs": true,
+    "theme_sidebar_size_xs": true,
+}
+```
+
+## Color scheme <!-- omit in toc -->
+Default Monokai
+
+## Other plugins <!-- omit in toc -->
+- AlignTab
+- Markdown Preview
+- MarkdownTOC ([usage](https://github.com/naokazuterada/MarkdownTOC#usage))
+- SideBarEnhancements
+
+</details>
