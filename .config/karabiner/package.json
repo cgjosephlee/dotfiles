@@ -1,0 +1,23 @@
+{
+  "name": "karabiner-config",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "tsx src/index.ts",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "@types/node": "^25.3.3",
+    "karabiner.ts": "^1",
+    "prettier": "^3.8.1",
+    "prettier-plugin-multiline-arrays": "^4.1.4",
+    "tsx": "^4",
+    "typescript": "^5"
+  },
+  "prettier": {
+    "plugins": [
+      "prettier-plugin-multiline-arrays"
+    ]
+  }
+}
