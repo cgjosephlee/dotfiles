@@ -1,8 +1,8 @@
 {
-  "title": "Custom 4: Navigation in Terminal Apps",
+  "title": "Custom 4: Navigation in Terminal Apps (emacs mode)",
   "rules": [
     {
-      "description": "⌘ + ← | Move cursor to line begin",
+      "description": "Cmd + Left | Move cursor to line begin",
       "manipulators": [
         {
           "type": "basic",
@@ -27,11 +27,8 @@
               "type": "frontmost_application_if",
               "bundle_identifiers": [
                 "^com\\.apple\\.Terminal$",
-                "^com\\.googlecode\\.iterm2$",
-                "^co\\.zeit\\.hyperterm$",
-                "^co\\.zeit\\.hyper$",
-                "^io\\.alacritty$",
-                "^net\\.kovidgoyal\\.kitty$"
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
               ]
             }
           ]
@@ -39,7 +36,7 @@
       ]
     },
     {
-      "description": "⌘ + → | Move cursor to line end",
+      "description": "Cmd + Right | Move cursor to line end",
       "manipulators": [
         {
           "type": "basic",
@@ -64,11 +61,8 @@
               "type": "frontmost_application_if",
               "bundle_identifiers": [
                 "^com\\.apple\\.Terminal$",
-                "^com\\.googlecode\\.iterm2$",
-                "^co\\.zeit\\.hyperterm$",
-                "^co\\.zeit\\.hyper$",
-                "^io\\.alacritty$",
-                "^net\\.kovidgoyal\\.kitty$"
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
               ]
             }
           ]
@@ -76,7 +70,7 @@
       ]
     },
     {
-      "description": "⌥ + ← | Move cursor one word behind",
+      "description": "Opt + Left | Move cursor one word behind",
       "manipulators": [
         {
           "type": "basic",
@@ -101,11 +95,8 @@
               "type": "frontmost_application_if",
               "bundle_identifiers": [
                 "^com\\.apple\\.Terminal$",
-                "^com\\.googlecode\\.iterm2$",
-                "^co\\.zeit\\.hyperterm$",
-                "^co\\.zeit\\.hyper$",
-                "^io\\.alacritty$",
-                "^net\\.kovidgoyal\\.kitty$"
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
               ]
             }
           ]
@@ -113,7 +104,7 @@
       ]
     },
     {
-      "description": "⌥ + → | Move cursor one word ahead",
+      "description": "Opt + Right | Move cursor one word ahead",
       "manipulators": [
         {
           "type": "basic",
@@ -138,11 +129,8 @@
               "type": "frontmost_application_if",
               "bundle_identifiers": [
                 "^com\\.apple\\.Terminal$",
-                "^com\\.googlecode\\.iterm2$",
-                "^co\\.zeit\\.hyperterm$",
-                "^co\\.zeit\\.hyper$",
-                "^io\\.alacritty$",
-                "^net\\.kovidgoyal\\.kitty$"
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
               ]
             }
           ]
@@ -150,7 +138,7 @@
       ]
     },
     {
-      "description": "⌥ + ⌫ | Delete one word",
+      "description": "Opt + Del | Delete one word",
       "manipulators": [
         {
           "type": "basic",
@@ -175,11 +163,8 @@
               "type": "frontmost_application_if",
               "bundle_identifiers": [
                 "^com\\.apple\\.Terminal$",
-                "^com\\.googlecode\\.iterm2$",
-                "^co\\.zeit\\.hyperterm$",
-                "^co\\.zeit\\.hyper$",
-                "^io\\.alacritty$",
-                "^net\\.kovidgoyal\\.kitty$"
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
               ]
             }
           ]
@@ -187,7 +172,7 @@
       ]
     },
     {
-      "description": "⌥ + ⌦ | Delete one word ahead",
+      "description": "Opt + Fn+Del | Delete one word ahead",
       "manipulators": [
         {
           "type": "basic",
@@ -213,11 +198,8 @@
               "type": "frontmost_application_if",
               "bundle_identifiers": [
                 "^com\\.apple\\.Terminal$",
-                "^com\\.googlecode\\.iterm2$",
-                "^co\\.zeit\\.hyperterm$",
-                "^co\\.zeit\\.hyper$",
-                "^io\\.alacritty$",
-                "^net\\.kovidgoyal\\.kitty$"
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
               ]
             }
           ]
@@ -225,7 +207,7 @@
       ]
     },
     {
-      "description": "⌘ + ⌫ | Delete to line begin",
+      "description": "Cmd + Del | Delete to line begin",
       "manipulators": [
         {
           "type": "basic",
@@ -250,11 +232,8 @@
               "type": "frontmost_application_if",
               "bundle_identifiers": [
                 "^com\\.apple\\.Terminal$",
-                "^com\\.googlecode\\.iterm2$",
-                "^co\\.zeit\\.hyperterm$",
-                "^co\\.zeit\\.hyper$",
-                "^io\\.alacritty$",
-                "^net\\.kovidgoyal\\.kitty$"
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
               ]
             }
           ]
@@ -262,7 +241,7 @@
       ]
     },
     {
-      "description": "⌘ + ⌦ | Delete to line end",
+      "description": "Cmd + Fn+Del | Delete to line end",
       "manipulators": [
         {
           "type": "basic",
@@ -288,11 +267,8 @@
               "type": "frontmost_application_if",
               "bundle_identifiers": [
                 "^com\\.apple\\.Terminal$",
-                "^com\\.googlecode\\.iterm2$",
-                "^co\\.zeit\\.hyperterm$",
-                "^co\\.zeit\\.hyper$",
-                "^io\\.alacritty$",
-                "^net\\.kovidgoyal\\.kitty$"
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
               ]
             }
           ]

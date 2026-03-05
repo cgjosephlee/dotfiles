@@ -41,9 +41,6 @@
               "type": "frontmost_application_if",
               "bundle_identifiers": [
                 "^com\\.apple\\.Terminal$",
-                "^com\\.googlecode\\.iterm2$",
-                "^co\\.zeit\\.hyper$",
-                "^io\\.alacritty$",
                 "^net\\.kovidgoyal\\.kitty$",
                 "^com\\.mitchellh\\.ghostty$"
               ]
@@ -53,7 +50,7 @@
       ]
     },
     {
-      "description": "Tmux Prefix Mode [caps_lock as trigger key] (modified)",
+      "description": "Tmux Prefix Mode [caps_lock as trigger key]",
       "manipulators": [
         {
           "type": "basic",
@@ -101,9 +98,6 @@
               "type": "frontmost_application_if",
               "bundle_identifiers": [
                 "^com\\.apple\\.Terminal$",
-                "^com\\.googlecode\\.iterm2$",
-                "^co\\.zeit\\.hyper$",
-                "^io\\.alacritty$",
                 "^net\\.kovidgoyal\\.kitty$",
                 "^com\\.mitchellh\\.ghostty$"
               ]
@@ -113,7 +107,7 @@
       ]
     },
     {
-      "description": "Tmux Prefix Mode [ctrl+A as prefix] (modified)",
+      "description": "Tmux Prefix Mode [ctrl+A as prefix]",
       "manipulators": [
         {
           "type": "basic",
@@ -872,35 +866,6 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "0",
-            "modifiers": {
-              "optional": [
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "a",
-              "modifiers": [
-                "left_control"
-              ]
-            },
-            {
-              "key_code": "0"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "tmux_prefix_mode",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
             "key_code": "1",
             "modifiers": {
               "optional": [
@@ -1162,6 +1127,35 @@
         {
           "type": "basic",
           "from": {
+            "key_code": "0",
+            "modifiers": {
+              "optional": [
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "a",
+              "modifiers": [
+                "left_control"
+              ]
+            },
+            {
+              "key_code": "0"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "tmux_prefix_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
             "key_code": "comma",
             "modifiers": {
               "optional": [
@@ -1191,35 +1185,6 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "slash",
-            "modifiers": {
-              "optional": [
-                "shift"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "a",
-              "modifiers": [
-                "left_control"
-              ]
-            },
-            {
-              "key_code": "slash"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "tmux_prefix_mode",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
             "key_code": "period",
             "modifiers": {
               "optional": [
@@ -1236,6 +1201,35 @@
             },
             {
               "key_code": "period"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "tmux_prefix_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "slash",
+            "modifiers": {
+              "optional": [
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "a",
+              "modifiers": [
+                "left_control"
+              ]
+            },
+            {
+              "key_code": "slash"
             }
           ],
           "conditions": [
