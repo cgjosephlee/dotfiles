@@ -5,6 +5,7 @@ import {
   map,
   numberKeyCodes,
   rule,
+  toSetVar,
   withMapper,
   type RuleBuilder,
 } from "karabiner.ts";
@@ -166,11 +167,9 @@ function tmuxPrefixTab(): RuleBuilder {
   return rule("Tmux Prefix Mode [Tab as trigger key]", inTerminal).manipulators(
     [
       map("tab", { optional: ["caps_lock", "shift"] })
-        .to({ set_variable: { name: "tmux_prefix_mode", value: 1 } })
+        .toVar("tmux_prefix_mode", 1)
         .toIfAlone("tab")
-        .toAfterKeyUp({
-          set_variable: { name: "tmux_prefix_mode", value: 0 },
-        }),
+        .toAfterKeyUp(toSetVar("tmux_prefix_mode", 0)),
     ],
   );
 }
@@ -181,15 +180,13 @@ function tmuxPrefixCapsLock(): RuleBuilder {
     inTerminal,
   ).manipulators([
     map("caps_lock", { optional: ["shift"] })
-      .to({ set_variable: { name: "tmux_prefix_mode", value: 1 } })
+      .toVar("tmux_prefix_mode", 1)
       .toIfAlone("caps_lock")
       .toIfHeldDown({
         key_code: "caps_lock",
         hold_down_milliseconds: 100,
       })
-      .toAfterKeyUp({
-        set_variable: { name: "tmux_prefix_mode", value: 0 },
-      })
+      .toAfterKeyUp(toSetVar("tmux_prefix_mode", 0))
       .parameters({
         "basic.to_if_alone_timeout_milliseconds": 250,
         "basic.to_if_held_down_threshold_milliseconds": 250,
