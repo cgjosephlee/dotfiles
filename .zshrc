@@ -22,6 +22,12 @@ zinit light-mode for \
 
 ### End of Zinit's installer chunk
 
+# XDG Base Directory
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_STATE_HOME="$HOME/.local/state"
+
 # Load theme
 zinit ice depth=1 src"${XDG_CONFIG_HOME:-$HOME/.config}/zsh/p10k.zsh"
 zinit light @romkatv/powerlevel10k
