@@ -132,6 +132,14 @@
           ],
           "conditions": [
             {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
+              ]
+            },
+            {
               "type": "variable_if",
               "name": "tmux_prefix_mode",
               "value": 1
@@ -160,6 +168,14 @@
             }
           ],
           "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
+              ]
+            },
             {
               "type": "variable_if",
               "name": "tmux_prefix_mode",
@@ -190,6 +206,14 @@
           ],
           "conditions": [
             {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
+              ]
+            },
+            {
               "type": "variable_if",
               "name": "tmux_prefix_mode",
               "value": 1
@@ -218,6 +242,14 @@
             }
           ],
           "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
+              ]
+            },
             {
               "type": "variable_if",
               "name": "tmux_prefix_mode",
@@ -248,6 +280,14 @@
           ],
           "conditions": [
             {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
+              ]
+            },
+            {
               "type": "variable_if",
               "name": "tmux_prefix_mode",
               "value": 1
@@ -276,6 +316,14 @@
             }
           ],
           "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
+              ]
+            },
             {
               "type": "variable_if",
               "name": "tmux_prefix_mode",
@@ -306,6 +354,14 @@
           ],
           "conditions": [
             {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
+              ]
+            },
+            {
               "type": "variable_if",
               "name": "tmux_prefix_mode",
               "value": 1
@@ -334,6 +390,14 @@
             }
           ],
           "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
+              ]
+            },
             {
               "type": "variable_if",
               "name": "tmux_prefix_mode",
@@ -364,6 +428,14 @@
           ],
           "conditions": [
             {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
+              ]
+            },
+            {
               "type": "variable_if",
               "name": "tmux_prefix_mode",
               "value": 1
@@ -392,6 +464,14 @@
             }
           ],
           "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
+              ]
+            },
             {
               "type": "variable_if",
               "name": "tmux_prefix_mode",
@@ -422,6 +502,14 @@
           ],
           "conditions": [
             {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
+              ]
+            },
+            {
               "type": "variable_if",
               "name": "tmux_prefix_mode",
               "value": 1
@@ -450,6 +538,14 @@
             }
           ],
           "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
+              ]
+            },
             {
               "type": "variable_if",
               "name": "tmux_prefix_mode",
@@ -480,6 +576,14 @@
           ],
           "conditions": [
             {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
+              ]
+            },
+            {
               "type": "variable_if",
               "name": "tmux_prefix_mode",
               "value": 1
@@ -508,6 +612,14 @@
             }
           ],
           "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
+              ]
+            },
             {
               "type": "variable_if",
               "name": "tmux_prefix_mode",
@@ -538,6 +650,14 @@
           ],
           "conditions": [
             {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
+              ]
+            },
+            {
               "type": "variable_if",
               "name": "tmux_prefix_mode",
               "value": 1
@@ -566,6 +686,14 @@
             }
           ],
           "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
+              ]
+            },
             {
               "type": "variable_if",
               "name": "tmux_prefix_mode",
@@ -596,6 +724,14 @@
           ],
           "conditions": [
             {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
+              ]
+            },
+            {
               "type": "variable_if",
               "name": "tmux_prefix_mode",
               "value": 1
@@ -624,6 +760,14 @@
             }
           ],
           "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
+              ]
+            },
             {
               "type": "variable_if",
               "name": "tmux_prefix_mode",
@@ -654,6 +798,14 @@
           ],
           "conditions": [
             {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
+              ]
+            },
+            {
               "type": "variable_if",
               "name": "tmux_prefix_mode",
               "value": 1
@@ -682,6 +834,14 @@
             }
           ],
           "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
+              ]
+            },
             {
               "type": "variable_if",
               "name": "tmux_prefix_mode",
@@ -712,6 +872,14 @@
           ],
           "conditions": [
             {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
+              ]
+            },
+            {
               "type": "variable_if",
               "name": "tmux_prefix_mode",
               "value": 1
@@ -740,6 +908,14 @@
             }
           ],
           "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
+              ]
+            },
             {
               "type": "variable_if",
               "name": "tmux_prefix_mode",
@@ -770,6 +946,14 @@
           ],
           "conditions": [
             {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
+              ]
+            },
+            {
               "type": "variable_if",
               "name": "tmux_prefix_mode",
               "value": 1
@@ -798,6 +982,14 @@
             }
           ],
           "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
+              ]
+            },
             {
               "type": "variable_if",
               "name": "tmux_prefix_mode",
@@ -828,6 +1020,14 @@
           ],
           "conditions": [
             {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
+              ]
+            },
+            {
               "type": "variable_if",
               "name": "tmux_prefix_mode",
               "value": 1
@@ -856,6 +1056,14 @@
             }
           ],
           "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
+              ]
+            },
             {
               "type": "variable_if",
               "name": "tmux_prefix_mode",
@@ -886,6 +1094,14 @@
           ],
           "conditions": [
             {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
+              ]
+            },
+            {
               "type": "variable_if",
               "name": "tmux_prefix_mode",
               "value": 1
@@ -914,6 +1130,14 @@
             }
           ],
           "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
+              ]
+            },
             {
               "type": "variable_if",
               "name": "tmux_prefix_mode",
@@ -944,6 +1168,14 @@
           ],
           "conditions": [
             {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
+              ]
+            },
+            {
               "type": "variable_if",
               "name": "tmux_prefix_mode",
               "value": 1
@@ -972,6 +1204,14 @@
             }
           ],
           "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
+              ]
+            },
             {
               "type": "variable_if",
               "name": "tmux_prefix_mode",
@@ -1002,6 +1242,14 @@
           ],
           "conditions": [
             {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
+              ]
+            },
+            {
               "type": "variable_if",
               "name": "tmux_prefix_mode",
               "value": 1
@@ -1030,6 +1278,14 @@
             }
           ],
           "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
+              ]
+            },
             {
               "type": "variable_if",
               "name": "tmux_prefix_mode",
@@ -1060,6 +1316,14 @@
           ],
           "conditions": [
             {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
+              ]
+            },
+            {
               "type": "variable_if",
               "name": "tmux_prefix_mode",
               "value": 1
@@ -1088,6 +1352,14 @@
             }
           ],
           "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
+              ]
+            },
             {
               "type": "variable_if",
               "name": "tmux_prefix_mode",
@@ -1118,6 +1390,14 @@
           ],
           "conditions": [
             {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
+              ]
+            },
+            {
               "type": "variable_if",
               "name": "tmux_prefix_mode",
               "value": 1
@@ -1146,6 +1426,14 @@
             }
           ],
           "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
+              ]
+            },
             {
               "type": "variable_if",
               "name": "tmux_prefix_mode",
@@ -1176,6 +1464,14 @@
           ],
           "conditions": [
             {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
+              ]
+            },
+            {
               "type": "variable_if",
               "name": "tmux_prefix_mode",
               "value": 1
@@ -1204,6 +1500,14 @@
             }
           ],
           "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
+              ]
+            },
             {
               "type": "variable_if",
               "name": "tmux_prefix_mode",
@@ -1234,6 +1538,14 @@
           ],
           "conditions": [
             {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
+              ]
+            },
+            {
               "type": "variable_if",
               "name": "tmux_prefix_mode",
               "value": 1
@@ -1262,6 +1574,14 @@
             }
           ],
           "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
+              ]
+            },
             {
               "type": "variable_if",
               "name": "tmux_prefix_mode",
@@ -1292,6 +1612,14 @@
           ],
           "conditions": [
             {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
+              ]
+            },
+            {
               "type": "variable_if",
               "name": "tmux_prefix_mode",
               "value": 1
@@ -1320,6 +1648,14 @@
             }
           ],
           "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
+              ]
+            },
             {
               "type": "variable_if",
               "name": "tmux_prefix_mode",
@@ -1350,6 +1686,14 @@
           ],
           "conditions": [
             {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
+              ]
+            },
+            {
               "type": "variable_if",
               "name": "tmux_prefix_mode",
               "value": 1
@@ -1378,6 +1722,14 @@
             }
           ],
           "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^net\\.kovidgoyal\\.kitty$",
+                "^com\\.mitchellh\\.ghostty$"
+              ]
+            },
             {
               "type": "variable_if",
               "name": "tmux_prefix_mode",
